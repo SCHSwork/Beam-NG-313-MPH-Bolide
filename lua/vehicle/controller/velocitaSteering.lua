@@ -39,6 +39,7 @@ end
 
 local current = 0
 local sensitivity = 1
+local highSpeedTrim = 0   -- small left trim at very high speed to cancel weight-bias drift
 
 local function updateGFX(dt)
   local ev = electrics.values
@@ -50,7 +51,9 @@ local function updateGFX(dt)
   if abs(target) < abs(current) and target * current >= 0 then rate = rate * 1.6 end
   local step = rate * dt
   current = current + min(max(target - current, -step), step)
-  ev.velocita_steer = current
+  -- fade the trim in between ~200 and ~280 mph
+  local trimK = min(max((speed - 89) / (125 - 89), 0), 1)
+  ev.velocita_steer = current + highSpeedTrim * trimK
   ev.velocita_steer_scale = scale
 end
 
@@ -62,6 +65,7 @@ end
 local function init(jbeamData)
   current = 0
   sensitivity = (jbeamData and jbeamData.speedSensitivity) or 1
+  highSpeedTrim = (jbeamData and jbeamData.highSpeedTrim) or 0
   electrics.values.velocita_steer = 0
 end
 
