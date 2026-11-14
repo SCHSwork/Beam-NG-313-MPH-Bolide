@@ -1,0 +1,17 @@
+{
+  "Configuration": "Velocita Track",
+  "Description": "Circuit Velocita: AWD with close-ratio gearing, slightly front-biased power split, softer front bar for turn-in and a smaller nitrous shot. Built for lap times; tops out around 230 mph.",
+  "Config Type": "Custom",
+  "Drivetrain": "AWD",
+  "Fuel Type": "Gasoline",
+  "Induction Type": "Turbo",
+  "Propulsion": "ICE",
+  "Transmission": "Dual-Clutch",
+  "Value": 550000,
+  "defaultMultiPaintSetup": {
+    "name": "Velocita Track",
+    "paint1": "Bianco Perla",
+    "paint2": "Blu Vibrante",
+    "paint3": "Blu Vibrante"
+  }
+}

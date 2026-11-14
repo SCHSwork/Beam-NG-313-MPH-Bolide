@@ -1,0 +1,17 @@
+{
+  "Configuration": "Velocita Drag",
+  "Description": "Drag-strip Velocita: AWD with short, tightly stacked gears, nitrous from 1st gear, launch-biased center diff and low rear tire pressure. Brutal 0-200 mph; tops out around 225 mph.",
+  "Config Type": "Custom",
+  "Drivetrain": "AWD",
+  "Fuel Type": "Gasoline",
+  "Induction Type": "Turbo",
+  "Propulsion": "ICE",
+  "Transmission": "Dual-Clutch",
+  "Value": 545000,
+  "defaultMultiPaintSetup": {
+    "name": "Velocita Drag",
+    "paint1": "Rosso Scarlatto",
+    "paint2": "Nero Opaco",
+    "paint3": "Nero Opaco"
+  }
+}

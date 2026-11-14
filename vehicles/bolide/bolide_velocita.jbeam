@@ -687,6 +687,7 @@
             "enabledModes": [
                 "safe",
                 "sport",
+                "topspeed",
                 "off"
             ],
             "defaultMode": "safe",
@@ -739,6 +740,13 @@
                         "controllerName": "activeBiasRear",
                         "isEnabled": true,
                         "maxBiasOffset": 0.15
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "velocitaActiveWing",
+                        "forceLowDrag": false
                     }
                 ]
             ],
@@ -859,6 +867,39 @@
                             }
                         ]
                     ]
+                },
+                "topspeed": {
+                    "name": "Top Speed (wing flat)",
+                    "order": 25,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "velocitaActiveWing",
+                                "forceLowDrag": true
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.18
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "9B59FF",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
                 }
             }
         }
@@ -945,9 +986,9 @@
     "mainEngine":{
         //turbocharger name
         "turbocharger":"turbocharger",
-        "$*instantAfterFireCoef": 2.6,
-        "$*sustainedAfterFireCoef": 2.6,
-        "$*sustainedAfterFireVolumeCoef": 1.6,
+        "$*instantAfterFireCoef": 3.4,
+        "$*sustainedAfterFireCoef": 3.2,
+        "$*sustainedAfterFireVolumeCoef": 1.8,
 
         //damage deformGroups
         "deformGroups_turbo":["mainEngine_turbo_R","mainEngine_turbo_L","mainEngine_intercooler_R","mainEngine_intercooler_L"]
@@ -1962,6 +2003,7 @@
             "enabledModes": [
                 "safe",
                 "sport",
+                "topspeed",
                 "drift",
                 "off"
             ],
@@ -2022,6 +2064,13 @@
                         "controllerName": "activeBiasRear",
                         "isEnabled": true,
                         "maxBiasOffset": 0.15
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "velocitaActiveWing",
+                        "forceLowDrag": false
                     }
                 ]
             ],
@@ -2200,6 +2249,39 @@
                                 "uiName": "TCS / ESC",
                                 "icon": "powertrain_esc",
                                 "color": "FF8C00",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "topspeed": {
+                    "name": "Top Speed (wing flat)",
+                    "order": 25,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "velocitaActiveWing",
+                                "forceLowDrag": true
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.18
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "9B59FF",
                                 "offColor": "343434"
                             }
                         ]
@@ -3237,10 +3319,10 @@
          ["ex3l",  0.47,   1.663,  0.268],
          ["ex3ll", 0.546,  1.663,  0.268],
 
-         ["ex4rr",-0.546,  1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":0.9, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
-         ["ex4r", -0.47,   1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":0.9, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
-         ["ex4l",  0.47,   1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":0.9, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
-         ["ex4ll", 0.546,  1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":0.9, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
+         ["ex4rr",-0.546,  1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":1.0, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
+         ["ex4r", -0.47,   1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":1.0, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
+         ["ex4l",  0.47,   1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":1.0, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
+         ["ex4ll", 0.546,  1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":1.0, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
          {"group":"none"},
         ],
     "beams":[
@@ -3406,5 +3488,25 @@
         ["ex3ll", "ex4ll", "ex4l"],
         {"triangleType":"NORMALTYPE"},
         ],
+},
+"bolide_shiftlight_velocita": {
+    "information":{
+        "authors":"Lincoln",
+        "name":"Velocita Dash Shift Lights",
+        "value":350,
+    },
+    "slotType" : "bolide_shiftlight",
+    "controller": [
+        ["fileName"],
+        ["shiftLights", {"name":"velocitaShiftLights", "engineName":"mainEngine", "maxEngineRPMOffset":300, "rpmRange":1800,
+            "outputElectrics":["velocita_sl1", "velocita_sl2", "velocita_sl3"],
+            "flashingOutputElectrics":["velocita_sl1", "velocita_sl2", "velocita_sl3"], "flashDuration":0.07}],
+    ],
+    "props": [
+        ["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"],
+        ["velocita_sl1", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":-0.05, "y":-0.06, "z":0.06}, "lightRange":0.45, "lightBrightness":1.6, "lightColor":{"r":40, "g":255, "b":60, "a":255}, "lightCastShadows":false, "flareName":"", "flareScale":0}],
+        ["velocita_sl2", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.0, "y":-0.06, "z":0.06}, "lightRange":0.45, "lightBrightness":1.6, "lightColor":{"r":255, "g":170, "b":0, "a":255}, "lightCastShadows":false, "flareName":"", "flareScale":0}],
+        ["velocita_sl3", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.05, "y":-0.06, "z":0.06}, "lightRange":0.45, "lightBrightness":1.6, "lightColor":{"r":255, "g":30, "b":30, "a":255}, "lightCastShadows":false, "flareName":"", "flareScale":0}],
+    ],
 },
 }

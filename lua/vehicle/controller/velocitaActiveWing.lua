@@ -9,6 +9,7 @@ local abs, min, max = math.abs, math.min, math.max
 local current = 0
 local holdTimer = 0      -- keeps the wing up briefly after a corner / braking zone
 local mode = "normal"
+local forceLowDrag = false
 
 local function setMode(m) mode = m; electrics.values.velocita_wing_mode = m end
 
@@ -25,6 +26,8 @@ local function updateGFX(dt)
     target = 0; setMode("normal"); holdTimer = 0
   elseif brake > 0.25 and speed > 22 then             -- hard braking at speed: air brake
     target = 1; setMode("airbrake"); holdTimer = 0.6
+  elseif forceLowDrag then                           -- Top Speed mode: stay flat
+    target = -1; setMode("lowdrag"); holdTimer = 0
   elseif latG > 0.3 or steer > 0.12 then              -- cornering: extra downforce
     target = 0.42; setMode("corner"); holdTimer = max(holdTimer, 0.5)
   elseif holdTimer > 0 then                           -- settle a moment before flattening
@@ -53,7 +56,12 @@ local function init(jbeamData)
   reset()
 end
 
+local function setParameters(p)
+  if p.forceLowDrag ~= nil then forceLowDrag = p.forceLowDrag and true or false end
+end
+
 M.init = init
+M.setParameters = setParameters
 M.reset = reset
 M.updateGFX = updateGFX
 return M
