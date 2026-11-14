@@ -578,7 +578,8 @@
                 "drivingDynamics/actuators/activeDiffBias",
                 {
                     "name": "activeBiasRear",
-                    "differentialName": "differential_R"
+                    "differentialName": "differential_R",
+                    "avDiffThreshold": 12
                 }
             ]
         ],
@@ -874,6 +875,14 @@
                     "settings": [
                         [
                             "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": false,
+                                "maxBiasOffset": 0.0
+                            }
                         ],
                         [
                             "controller",
@@ -1868,7 +1877,8 @@
                 "drivingDynamics/actuators/activeDiffBias",
                 {
                     "name": "activeBiasRear",
-                    "differentialName": "differential_R"
+                    "differentialName": "differential_R",
+                    "avDiffThreshold": 12
                 }
             ]
         ],
@@ -2260,6 +2270,14 @@
                     "settings": [
                         [
                             "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": false,
+                                "maxBiasOffset": 0.0
+                            }
                         ],
                         [
                             "controller",
