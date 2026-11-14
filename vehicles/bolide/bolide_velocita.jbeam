@@ -895,7 +895,7 @@
         "whinePitchPer10kRPM": 0.042,
         "wastegateStart":"$wastegateStart",
         "wastegateLimit":"$=$wastegateStart+1",
-        "maxExhaustPower": 80000,
+        "maxExhaustPower": 95000,
         "backPressureCoef": 0.00008,
         "frictionCoef": 100,
         "inertia":3.2,
