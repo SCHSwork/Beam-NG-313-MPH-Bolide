@@ -1,0 +1,17 @@
+{
+  "Configuration": "Velocita",
+  "Description": "Lincoln's top-speed Bolide: ~1000 hp quick-spool twin-turbo V8, 7-speed dual-clutch, 200 hp nitrous shot, high-downforce wing, plus traction control, stability control, ABS and launch control.",
+  "Config Type": "Custom",
+  "Drivetrain": "RWD",
+  "Fuel Type": "Gasoline",
+  "Induction Type": "Turbo",
+  "Propulsion": "ICE",
+  "Transmission": "Dual-Clutch",
+  "Value": 520000,
+  "defaultMultiPaintSetup": {
+    "name": "Velocita Stealth",
+    "paint1": "Nero Opaco",
+    "paint2": "Arancio Vampata",
+    "paint3": "Arancio Vampata"
+  }
+}

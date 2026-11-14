@@ -1,0 +1,3410 @@
+{
+    "bolide_brake_F_velocita": {
+        "information": {
+            "authors": "BeamNG, Lincoln",
+            "name": "Velocita Carbon-Ceramic Front Brakes (ABS)",
+            "value": 1400
+        },
+        "slotType": "bolide_brake_F",
+        "slots2": [
+            [
+                "name",
+                "allowTypes",
+                "denyTypes",
+                "default",
+                "description"
+            ],
+            [
+                "brakepad_F",
+                [
+                    "brakepad_F"
+                ],
+                [],
+                "brakepad_F_race",
+                "Front Brake Pads",
+                {
+                    "coreSlot": true
+                }
+            ]
+        ],
+        "variables": [
+            [
+                "name",
+                "type",
+                "unit",
+                "category",
+                "default",
+                "min",
+                "max",
+                "title",
+                "description"
+            ],
+            [
+                "$brakebias",
+                "range",
+                "",
+                "Brakes",
+                0.6,
+                0,
+                1,
+                "Front/Rear Bias",
+                "Percent of brake torque to the front wheels",
+                {
+                    "minDis": 0,
+                    "maxDis": 100
+                }
+            ]
+        ],
+        "flexbodies": [
+            [
+                "mesh",
+                "[group]:",
+                "nonFlexMaterials"
+            ],
+            [
+                "brake_disc_drilled",
+                [
+                    "wheel_FR",
+                    "wheelhub_FR"
+                ],
+                [],
+                {
+                    "pos": {
+                        "x": -0.775,
+                        "y": -1.28,
+                        "z": 0.345
+                    },
+                    "scale": {
+                        "x": 0.9,
+                        "y": 0.95,
+                        "z": 0.95
+                    },
+                    "rot": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "materialOverride": [
+                        [
+                            "disc_brake",
+                            "disc_brake_FR"
+                        ]
+                    ]
+                }
+            ],
+            [
+                "brake_disc_drilled",
+                [
+                    "wheel_FL",
+                    "wheelhub_FL"
+                ],
+                [],
+                {
+                    "pos": {
+                        "x": 0.775,
+                        "y": -1.28,
+                        "z": 0.345
+                    },
+                    "scale": {
+                        "x": 0.9,
+                        "y": 0.95,
+                        "z": 0.95
+                    },
+                    "rot": {
+                        "x": 180,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "materialOverride": [
+                        [
+                            "disc_brake",
+                            "disc_brake_FL"
+                        ]
+                    ]
+                }
+            ],
+            [
+                "brake_caliper_4pot_red_rotopad",
+                [
+                    "bolide_hub_F"
+                ],
+                [],
+                {
+                    "pos": {
+                        "x": -0.775,
+                        "y": -1.285,
+                        "z": 0.345
+                    },
+                    "scale": {
+                        "x": 0.9,
+                        "y": 0.95,
+                        "z": 0.95
+                    },
+                    "rot": {
+                        "x": -15,
+                        "y": 0,
+                        "z": 0
+                    }
+                }
+            ],
+            [
+                "brake_caliper_4pot_red_rotopad",
+                [
+                    "bolide_hub_F"
+                ],
+                [],
+                {
+                    "pos": {
+                        "x": 0.775,
+                        "y": -1.285,
+                        "z": 0.345
+                    },
+                    "scale": {
+                        "x": 0.9,
+                        "y": 0.95,
+                        "z": 0.95
+                    },
+                    "rot": {
+                        "x": 15,
+                        "y": 180,
+                        "z": 0
+                    }
+                }
+            ]
+        ],
+        "pressureWheels": [
+            [
+                "name",
+                "hubGroup",
+                "group",
+                "node1:",
+                "node2:",
+                "nodeS",
+                "nodeArm:",
+                "wheelDir"
+            ],
+            {
+                "brakeTorque": "$=$brakestrength*5600*$brakebias"
+            },
+            {
+                "brakeInputSplit": 1
+            },
+            {
+                "brakeSplitCoef": 1
+            },
+            {
+                "parkingTorque": 0
+            },
+            {
+                "enableABS": true
+            },
+            {
+                "absSlipRatioTarget": 0.13
+            },
+            {
+                "brakeSpring": 125
+            },
+            {
+                "enableBrakeThermals": true
+            },
+            {
+                "brakeDiameter": 0.38
+            },
+            {
+                "brakeMass": 13
+            },
+            {
+                "brakeType": "carbon-ceramic-vented-disc"
+            },
+            {
+                "rotorMaterial": "carbon-ceramic"
+            },
+            {
+                "brakeVentingCoef": 2.2
+            },
+            {
+                "squealCoefNatural": 1.0,
+                "squealCoefLowSpeed": 1.0
+            }
+        ]
+    },
+    "bolide_brake_R_velocita": {
+        "information": {
+            "authors": "BeamNG, Lincoln",
+            "name": "Velocita Carbon-Ceramic Rear Brakes (ABS)",
+            "value": 1300
+        },
+        "slotType": "bolide_brake_R",
+        "slots2": [
+            [
+                "name",
+                "allowTypes",
+                "denyTypes",
+                "default",
+                "description"
+            ],
+            [
+                "brakepad_R",
+                [
+                    "brakepad_R"
+                ],
+                [],
+                "brakepad_R_race",
+                "Rear Brake Pads",
+                {
+                    "coreSlot": true
+                }
+            ]
+        ],
+        "variables": [
+            [
+                "name",
+                "type",
+                "unit",
+                "category",
+                "default",
+                "min",
+                "max",
+                "title",
+                "description"
+            ]
+        ],
+        "flexbodies": [
+            [
+                "mesh",
+                "[group]:",
+                "nonFlexMaterials"
+            ],
+            [
+                "brake_disc_drilled",
+                [
+                    "wheel_RR",
+                    "wheelhub_RR"
+                ],
+                [],
+                {
+                    "pos": {
+                        "x": -0.765,
+                        "y": 1.25,
+                        "z": 0.345
+                    },
+                    "scale": {
+                        "x": 0.9,
+                        "y": 0.92,
+                        "z": 0.92
+                    },
+                    "rot": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "materialOverride": [
+                        [
+                            "disc_brake",
+                            "disc_brake_RR"
+                        ]
+                    ]
+                }
+            ],
+            [
+                "brake_disc_drilled",
+                [
+                    "wheel_RL",
+                    "wheelhub_RL"
+                ],
+                [],
+                {
+                    "pos": {
+                        "x": 0.765,
+                        "y": 1.25,
+                        "z": 0.345
+                    },
+                    "scale": {
+                        "x": 0.9,
+                        "y": 0.92,
+                        "z": 0.92
+                    },
+                    "rot": {
+                        "x": 180,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "materialOverride": [
+                        [
+                            "disc_brake",
+                            "disc_brake_RL"
+                        ]
+                    ]
+                }
+            ],
+            [
+                "brake_caliper_4pot_red_rotopad",
+                [
+                    "bolide_hub_R"
+                ],
+                [],
+                {
+                    "pos": {
+                        "x": -0.765,
+                        "y": 1.25,
+                        "z": 0.345
+                    },
+                    "scale": {
+                        "x": 0.9,
+                        "y": 0.92,
+                        "z": 0.92
+                    },
+                    "rot": {
+                        "x": 180,
+                        "y": 0,
+                        "z": 0
+                    }
+                }
+            ],
+            [
+                "brake_caliper_4pot_red_rotopad",
+                [
+                    "bolide_hub_R"
+                ],
+                [],
+                {
+                    "pos": {
+                        "x": 0.765,
+                        "y": 1.25,
+                        "z": 0.345
+                    },
+                    "scale": {
+                        "x": 0.9,
+                        "y": 0.92,
+                        "z": 0.92
+                    },
+                    "rot": {
+                        "x": 180,
+                        "y": 180,
+                        "z": 0
+                    }
+                }
+            ]
+        ],
+        "pressureWheels": [
+            [
+                "name",
+                "hubGroup",
+                "group",
+                "node1:",
+                "node2:",
+                "nodeS",
+                "nodeArm:",
+                "wheelDir"
+            ],
+            {
+                "brakeTorque": "$=$brakebias == nil and $brakestrength*900 or $brakestrength*5600*(1-$brakebias)"
+            },
+            {
+                "brakeInputSplit": 1
+            },
+            {
+                "brakeSplitCoef": 1
+            },
+            {
+                "parkingTorque": 1800
+            },
+            {
+                "enableABS": true
+            },
+            {
+                "absSlipRatioTarget": 0.12
+            },
+            {
+                "brakeSpring": 125
+            },
+            {
+                "enableBrakeThermals": true
+            },
+            {
+                "brakeDiameter": 0.36
+            },
+            {
+                "brakeMass": 11
+            },
+            {
+                "brakeType": "carbon-ceramic-vented-disc"
+            },
+            {
+                "rotorMaterial": "carbon-ceramic"
+            },
+            {
+                "brakeVentingCoef": 1.8
+            },
+            {
+                "squealCoefNatural": 0.0,
+                "squealCoefLowSpeed": 0.0
+            }
+        ]
+    },
+    "bolide_engine_internals_velocita": {
+        "information": {
+            "authors": "Lincoln",
+            "name": "Velocita Forged Long Block",
+            "value": 18500
+        },
+        "slotType": "bolide_engine_internals",
+        "mainEngine": {
+            "torqueModMult": [
+                [
+                    "rpm",
+                    "torque"
+                ],
+                [
+                    0,
+                    1
+                ],
+                [
+                    2000,
+                    0.95
+                ],
+                [
+                    4000,
+                    0.97
+                ],
+                [
+                    6000,
+                    1.0
+                ],
+                [
+                    7000,
+                    1.04
+                ],
+                [
+                    8000,
+                    1.09
+                ],
+                [
+                    9000,
+                    1.16
+                ],
+                [
+                    10000,
+                    1.3
+                ]
+            ],
+            "$+maxRPM": 400,
+            "$*friction": 1.05,
+            "$*dynamicFriction": 0.9,
+            "$*inertia": 0.85,
+            "$*engineBrakeTorque": 1.15,
+            "cylinderWallTemperatureDamageThreshold": 200,
+            "engineBlockAirCoolingEfficiency": 42,
+            "oilVolume": 9.5,
+            "headGasketDamageThreshold": 2500000,
+            "pistonRingDamageThreshold": 2500000,
+            "connectingRodDamageThreshold": 3200000,
+            "$*maxTorqueRating": 3.2,
+            "$*maxOverTorqueDamage": 2.8
+        }
+    },
+    "bolide_mod_velocita_dse": {
+        "information": {
+            "authors": "Lincoln",
+            "name": "Velocita Driving Electronics (TCS + ESC + Launch Control)",
+            "value": 4500
+        },
+        "slotType": "bolide_mod",
+        "controller": [
+            [
+                "fileName"
+            ],
+            [
+                "drivingDynamics/CMU",
+                {
+                    "name": "CMU",
+                    "debugSettings": {
+                        "peerIP": "127.0.0.1"
+                    }
+                }
+            ],
+            [
+                "drivingDynamics/sensors/sensorHub"
+            ],
+            [
+                "drivingDynamics/sensors/virtualSensors",
+                {
+                    "name": "sensors"
+                }
+            ],
+            [
+                "drivingDynamics/sensors/vehicleData",
+                {
+                    "name": "vehicleData"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/components/motorTorqueControl",
+                {
+                    "name": "motorTorqueControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/components/brakeControl",
+                {
+                    "name": "brakeControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/tractionControl",
+                {
+                    "name": "tractionControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/slipProviders/virtualSpeedSlip"
+            ],
+            [
+                "drivingDynamics/supervisors/yawControl",
+                {
+                    "name": "yawControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/yawProviders/STMEstimate"
+            ],
+            [
+                "adaptiveBrakeLights"
+            ],
+            [
+                "driveModes"
+            ],
+            [
+                "drivingDynamics/actuators/activeDiffBias",
+                {
+                    "name": "activeBiasRear",
+                    "differentialName": "differential_R"
+                }
+            ]
+        ],
+        "vehicleData": {
+            "skewStiffnessFront": 125000,
+            "skewStiffnessRear": 215000
+        },
+        "tractionControl": {
+            "tractionControlledMotors": [
+                "mainEngine"
+            ]
+        },
+        "motorTorqueControl": {
+            "useForTractionControl": true,
+            "tractionControl": {
+                "wheelGroupSettings": [
+                    [
+                        "motorName",
+                        "slipThreshold",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "mainEngine",
+                        0.1,
+                        1.6,
+                        2.6,
+                        0.1,
+                        20,
+                        6
+                    ]
+                ]
+            },
+            "useForYawControl": true,
+            "yawControl": {
+                "yawControlledMotors": [
+                    "mainEngine"
+                ],
+                "PIDSettings": [
+                    [
+                        "type",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "yawAV",
+                        1.5,
+                        0.9,
+                        0.0,
+                        50,
+                        20
+                    ],
+                    [
+                        "slipAngle",
+                        2.0,
+                        1.0,
+                        0.0,
+                        10,
+                        1
+                    ]
+                ],
+                "yawAVThreshold": 0.3,
+                "slipAngleThreshold": 0.05
+            }
+        },
+        "brakeControl": {
+            "useForTractionControl": false,
+            "yawControl": {
+                "PIDSettings": [
+                    [
+                        "type",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "yawAV",
+                        3.0,
+                        0.8,
+                        0.0,
+                        100,
+                        10
+                    ],
+                    [
+                        "slipAngle",
+                        2.0,
+                        1.0,
+                        0.0,
+                        10,
+                        1
+                    ]
+                ],
+                "yawAVThreshold": 0.22,
+                "slipAngleThreshold": 0.045
+            }
+        },
+        "driveModes": {
+            "enabledModes": [
+                "safe",
+                "sport",
+                "off"
+            ],
+            "defaultMode": "safe",
+            "defaultSettings": [
+                [
+                    "type"
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "tractionControl",
+                        "isEnabled": true
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "yawControl",
+                        "isEnabled": true
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "motorTorqueControl",
+                        "isEnabled": true,
+                        "tractionControl": "default",
+                        "yawControl": "default"
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "brakeControl",
+                        "isEnabled": true,
+                        "yawControl": "default"
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "twoStepLaunch",
+                        "isEnabled": true,
+                        "launchRPM": 5000
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "activeBiasRear",
+                        "isEnabled": true,
+                        "maxBiasOffset": 0.15
+                    }
+                ]
+            ],
+            "modes": {
+                "safe": {
+                    "name": "Full Assist",
+                    "order": 10,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "238BE6",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "sport": {
+                    "name": "Sport (more slide)",
+                    "order": 20,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": true,
+                                "maxBiasOffset": 0.2
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.22,
+                                "yawControl.slipAngleThreshold": 0.09
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "brakeControl",
+                                "yawControl.slipAngleThreshold": 0.12,
+                                "yawControl.yawAvThreshold": 0.5
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "DA0C0C",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "off": {
+                    "name": "TCS & ESC Off",
+                    "order": 50,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": false,
+                                "maxBiasOffset": 0.0
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "tractionControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "yawControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "brakeControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "999999",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                }
+            }
+        }
+    },
+"bolide_turbo_velocita": {
+    "information":{
+        "authors":"BeamNG, Lincoln",
+        "name":"Velocita Quick-Spool Twin Turbochargers",
+        "value":19600,
+    },
+    "slotType" : "bolide_intake",
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$wastegateStart", "range", "psi", "Engine", 26, 12, 32, "Turbo Boost Pressure", "Pressure at which the turbocharger wastegate begins to open", {"stepDis":0.5}],
+    ],
+    "slots2": [
+        ["name",                 "allowTypes",             "denyTypes", "default",                "description"],
+        ["bolide_exhaust_turbo", ["bolide_exhaust_turbo"], [],          "bolide_exhaust_turbo_b", "Exhaust"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_intake_turbo", ["bolide_engine", "bolide_engine_intake", "bolide_headers"]],
+         ["bolide_intercooler_R", ["bolide_intercooler_R", "bolide_subframe_R"]],
+         ["bolide_intercooler_L", ["bolide_intercooler_L", "bolide_subframe_R"]],
+    ],
+    "turbocharger": {
+        "bovSoundFileName":"event:>Vehicle>Forced_Induction>Turbo_07>turbo_flt_race",
+        "hissLoopEvent":"event:>Vehicle>Forced_Induction>Turbo_07>turbo_hiss_race",
+        "whineLoopEvent":"event:>Vehicle>Forced_Induction>Turbo_07>turbo_spin_race",
+        "turboSizeCoef": 1.0,
+        "bovSoundVolumeCoef":0.95,
+        "hissVolumePerPSI": 0.06,
+        "whineVolumePer10kRPM": 0.02,
+        "whinePitchPer10kRPM": 0.042,
+        "wastegateStart":"$wastegateStart",
+        "wastegateLimit":"$=$wastegateStart+1",
+        "maxExhaustPower": 80000,
+        "backPressureCoef": 0.00008,
+        "frictionCoef": 100,
+        "inertia":3.2,
+        "pressureRatePSI": 140,
+        "damageThresholdTemperature": 1050
+        "pressurePSI":[
+            //turbineRPM, pressure(PSI)
+            [0,       -3.5],
+            [30000,    1.5],
+            [60000,      4],
+            [90000,     11],
+            [150000,    18],
+            [200000,    25],
+            [250000,    33],
+            [300000,    40],
+        ],
+        "engineDef":[
+            //engineRPM, efficiency, exhaustFactor  (tuned for fast spool)
+            [0,     0.0,    0.0],
+            [650,   0.35,   0.15],
+            [1400,  0.55,   0.35],
+            [2000,  0.75,   0.55],
+            [3000,  0.92,   0.80],
+            [4000,  0.95,   0.95],
+            [5000,  0.97,   1.00],
+            [6000,  0.98,   1.00],
+            [7000,  0.97,   1.00],
+            [8000,  0.95,   0.97],
+            [8500,  0.90,   0.95],
+            [9000,  0.82,   0.90],
+            [10000, 0.65,   0.80],
+        ],
+    },
+    "soundConfig": {
+        "$+maxLoadMix": 0.15,
+        "$+minLoadMix": 0.1,
+        "$+intakeMuffling":-0.5,
+        //"$+maingain": -0.5,
+        "$+eqLowGain": 7,
+    },
+    "soundConfigExhaust": {
+        "$+maxLoadMix": 0.2,
+        "$+minLoadMix": 0.15,
+        //"$+maingain": -0.5,
+        "$+offLoadGain": 0.15,
+    },
+    "mainEngine":{
+        //turbocharger name
+        "turbocharger":"turbocharger",
+        "$*instantAfterFireCoef": 2.6,
+        "$*sustainedAfterFireCoef": 2.6,
+        "$*sustainedAfterFireVolumeCoef": 1.6,
+
+        //damage deformGroups
+        "deformGroups_turbo":["mainEngine_turbo_R","mainEngine_turbo_L","mainEngine_intercooler_R","mainEngine_intercooler_L"]
+    },
+    "nodes": [
+         ["id",      "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":false},
+         //intake
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"nodeWeight":3.5},
+         {"group":["bolide_engine","bolide_engine_intake"]},
+         ["intck1r",-0.112,  0.556,  0.741],
+         ["intck1l", 0.112,  0.556,  0.741],
+         ["intck2r",-0.112,  1.033,  0.741],
+         ["intck2l", 0.112,  1.033,  0.741],
+         {"engineGroup":""},
+
+         //turbos
+         {"nodeWeight":2.0},
+         ["trb1r",  -0.336,  0.73,   0.67,   {"group":"bolide_turbo_R"}],
+         ["trb1l",   0.336,  0.73,   0.67,   {"group":"bolide_turbo_L"}],
+         ["trb2r",  -0.336,  0.88,   0.67,   {"group":"bolide_turbo_R", "afterFireAudioCoef":1.0, "afterFireVisualCoef":1.0, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":1.0, "exhaustAudioMufflingCoef":1.0, "exhaustAudioGainChange":0}],
+         ["trb2l",   0.336,  0.88,   0.67,   {"group":"bolide_turbo_L", "afterFireAudioCoef":1.0, "afterFireVisualCoef":1.0, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":1.0, "exhaustAudioMufflingCoef":1.0, "exhaustAudioGainChange":0}],
+
+         //intercoolers
+         {"nodeWeight":3.0},
+         ["ic1r",   -0.809,  0.762,  0.571,  {"group":"bolide_intercooler_R"}],
+         ["ic1l",    0.809,  0.762,  0.571,  {"group":"bolide_intercooler_L"}],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:",    "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //intake
+          {"deformLimitExpansion":1.2},
+          {"beamSpring":3500940,"beamDamp":235},
+          {"beamDeform":105000,"beamStrength":"FLT_MAX"},
+          ["intck2l", "intck2r"],
+          ["intck2r", "intck1r"],
+          ["intck1r", "intck1l"],
+          ["intck1l", "intck2l"],
+          ["intck2l", "intck1r"],
+          ["intck2r", "intck1l"],
+          ["intck2r", "e4r"],
+          ["e4r",     "intck1r"],
+          ["intck1r", "e3r"],
+          ["intck2r", "e3r"],
+          ["intck2l", "e4l"],
+          ["e4l",     "intck1l"],
+          ["intck1l", "e3l"],
+          ["e3l",     "intck2l"],
+          ["intck2l", "e2l"],
+          ["e2l",     "intck1l"],
+          ["intck1l", "e1l"],
+          ["e1l",     "intck2l"],
+          ["intck2r", "e2r"],
+          ["e2r",     "intck1r"],
+          ["intck1r", "e1r"],
+          ["e1r",     "intck2r"],
+
+          //turbos
+          {"beamSpring":3000000,"beamDamp":130},
+          {"beamDeform":90000,"beamStrength":"FLT_MAX"},
+          {"deformGroup":"mainEngine_turbo_R", "deformationTriggerRatio":0.001}
+          ["trb1r",   "e3l"],
+          ["trb1r",   "e4l"],
+          ["trb1r",   "e3r"],
+          ["trb1r",   "e4r"],
+          ["trb1r",   "e1l"],
+          ["trb1r",   "e2l"],
+          ["trb1r",   "e1r",     {"isExhaust":"mainEngine"}],
+          ["trb1r",   "e2r"],
+          ["trb2r",   "e3l"],
+          ["trb2r",   "e4l"],
+          ["trb2r",   "e3r"],
+          ["trb2r",   "e4r"],
+          ["trb2r",   "e1l"],
+          ["trb2r",   "e2l"],
+          ["trb2r",   "e1r"],
+          ["trb2r",   "e2r"],
+          ["trb2r",   "trb1r",   {"isExhaust":"mainEngine"}],
+          {"deformGroup":"mainEngine_turbo_L", "deformationTriggerRatio":0.001}
+          ["trb1l",   "e3l"],
+          ["trb1l",   "e4l"],
+          ["trb1l",   "e3r"],
+          ["trb1l",   "e4r"],
+          ["trb1l",   "e1l",     {"isExhaust":"mainEngine"}],
+          ["trb1l",   "e2l"],
+          ["trb1l",   "e1r"],
+          ["trb1l",   "e2r"],
+          ["trb2l",   "e3l"],
+          ["trb2l",   "e4l"],
+          ["trb2l",   "e3r"],
+          ["trb2l",   "e4r"],
+          ["trb2l",   "e1l"],
+          ["trb2l",   "e2l"],
+          ["trb2l",   "e1r"],
+          ["trb2l",   "e2r"],
+          ["trb2l",   "trb1l",   {"isExhaust":"mainEngine"}],
+          {"deformGroup":"", "deformationTriggerRatio":""}
+
+          //intercoolers
+          {"beamSpring":2000000,"beamDamp":130},
+          {"beamDeform":15000,"beamStrength":"FLT_MAX"},
+          {"deformGroup":"mainEngine_intercooler_R", "deformationTriggerRatio":0.02}
+          ["ic1r",    "rx9r"],
+          ["ic1r",    "rx7rr"],
+          ["ic1r",    "rx8r"],
+          ["ic1r",    "rx7r"],
+          ["ic1r",    "rx1r"],
+          ["ic1r",    "rx3r"],
+          {"deformGroup":"mainEngine_intercooler_L", "deformationTriggerRatio":0.02}
+          ["ic1l",    "rx9l"],
+          ["ic1l",    "rx7ll"],
+          ["ic1l",    "rx8l"],
+          ["ic1l",    "rx7l"],
+          ["ic1l",    "rx1l"],
+          ["ic1l",    "rx3l"],
+
+          //charge pipes
+          {"beamSpring":50000,"beamDamp":130},
+          {"beamDeform":10000,"beamStrength":20000},
+          {"deformGroup":"mainEngine_chargepipe_R", "deformationTriggerRatio":0.02}
+          ["rx9r",    "trb1r"],
+          ["ic1r",    "intck1r"],
+          ["ic1r",    "intck2r"],
+          {"deformGroup":"mainEngine_chargepipe_L", "deformationTriggerRatio":0.02}
+          ["rx9l",    "trb1l"],
+          ["ic1l",    "intck1l"],
+          ["ic1l",    "intck2l"],
+          {"deformGroup":"", "deformationTriggerRatio":""}
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"bolide_transaxle_7DCT_velocita": {
+    "information":{
+        "authors":"BeamNG, Lincoln",
+        "name":"Velocita 7-Speed Dual-Clutch Transaxle",
+        "value":16000,
+    },
+    "slotType" : "bolide_transaxle",
+    "slots2": [
+        ["name",                  "allowTypes",              "denyTypes", "default",                    "description"],
+        ["bolide_differential_R", ["bolide_differential_R"], [],          "bolide_differential_R_race", "Rear Differential"],
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$gear_R", "range", ":1", "Transmission", 3.27, 0.5, 5, "Reverse Gear Ratio", "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_1", "range", ":1", "Transmission", 3.67, 0.5, 5, "1st Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_2", "range", ":1", "Transmission", 2.28, 0.5, 5, "2nd Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_3", "range", ":1", "Transmission", 1.62, 0.5, 5, "3rd Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_4", "range", ":1", "Transmission", 1.27, 0.5, 5, "4th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_5", "range", ":1", "Transmission", 1.00, 0.5, 5, "5th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_6", "range", ":1", "Transmission", 1.00, 0.5, 5, "6th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_7", "range", ":1", "Transmission", 0.88, 0.5, 5, "7th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+    ],
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+        ["dctGearbox", "gearbox", "mainEngine", 1],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":["$=-$gear_R", 0, "$gear_1", "$gear_2", "$gear_3", "$gear_4", "$gear_5", "$gear_6", "$gear_7"],
+        "parkLockTorque":2000,
+        "additionalEngineInertia":0.04,
+        "friction":1.62,
+        "dynamicFriction":0.0016,
+        "torqueLossCoef": 0.0135,
+
+        "gearWhineCoefsInput":  [0.33, 0.00, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33],
+        "gearWhineCoefsOutput": [0.00, 0.00, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33],
+        "gearWhineInputEvent": "event:>Vehicle>Transmission>straight_01>twine_in_racegt3",
+        "gearWhineOutputEvent": "event:>Vehicle>Transmission>straight_01>twine_out_racegt3",
+
+        "forwardInputPitchCoef":0.85
+        "forwardOutputPitchCoef":0.85
+        "reverseInputPitchCoef":0.7
+        "reverseOutputPitchCoef":0.7
+
+        //"gearWhineInputPitchCoefSmoothing":50
+        //"gearWhineOutputPitchCoefSmoothing":50
+        //"gearWhineInputVolumeCoefSmoothing":10
+        //"gearWhineOutputVolumeCoefSmoothing":10
+
+        //"gearWhineFixedCoefInput": 0.5
+        //"gearWhineFixedCoefOutput": 0.8
+
+    },
+    "vehicleController": {
+        "automaticModes":"PRNDSM",
+        "calculateOptimalLoadShiftPoints": true,
+        "shiftDownRPMOffsetCoef":1.25,
+        "aggressionHoldOffThrottleDelay":3,
+        "lowShiftDownRPM":[0,0,0,2400,2700,2700,2700,2700,2700],
+        "lowShiftUpRPM":[0,0,4500,4400,4300,4200,4100,4000],
+        "clutchLaunchStartRPM": 3500,
+        "clutchLaunchTargetRPM": 4500,
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_transaxle", ["bolide_engine","bolide_transaxle"]],
+    ],
+    "nodes": [
+         ["id",    "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":true},
+         //transaxle
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"bolide_transaxle"},
+         {"nodeWeight":7.0},
+         ["tra1",  0.0,    1.26,   0.359],
+         ["tra2r",-0.113,  1.669,  0.45],
+         ["tra2l", 0.113,  1.669,  0.45],
+         ["tra3",  0.0,    1.669,  0.21],
+         {"group":""},
+
+         //transmission mount nodes
+         {"nodeWeight":2.0},
+         ["tm1r", -0.138,  1.4,    0.297],
+         ["tm1l",  0.138,  1.4,    0.297],
+    ],
+    "beams": [
+          ["id1:",  "id2:"],
+          //transaxle
+          {"deformLimitExpansion":1.2},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":8501000,"beamDamp":250},
+          {"beamDeform":1120000,"beamStrength":"FLT_MAX"},
+          ["e2l",   "tra1"],
+          ["e2r",   "tra1"],
+          ["tra1",  "e4l"],
+          ["tra1",  "e4r"],
+          ["tra1",  "tra3"],
+          ["tra1",  "tra2r"],
+          ["tra1",  "tra2l"],
+          ["tra2l", "tra2r"],
+          ["tra2r", "tra3"],
+          ["tra3",  "tra2l"],
+          ["tra2r", "e2r"],
+          ["tra2r", "e2l"],
+          ["tra2r", "e4r"],
+          ["tra2r", "e4l"],
+          ["tra2l", "e2l"],
+          ["tra2l", "e2r"],
+          ["tra2l", "e4r"],
+          ["tra2l", "e4l"],
+          ["tra3",  "e2r"],
+          ["tra3",  "e2l"],
+          ["tra3",  "e4l"],
+          ["tra3",  "e4r"],
+
+          //transmission mount nodes
+          {"beamSpring":2501000,"beamDamp":50},
+          {"beamDeform":63000,"beamStrength":"FLT_MAX"},
+          ["tm1r",  "tra2r"],
+          ["tm1r",  "tra2l"],
+          ["tm1r",  "tra3"],
+          ["tm1r",  "tra1"],
+          ["tm1r",  "e2l"],
+          ["tm1r",  "e2r"],
+          ["tm1r",  "e4r"],
+          ["tm1r",  "e4l"],
+
+          ["tm1l",  "tra2r"],
+          ["tm1l",  "tra2l"],
+          ["tm1l",  "tra3"],
+          ["tm1l",  "tra1"],
+          ["tm1l",  "e2l"],
+          ["tm1l",  "e2r"],
+          ["tm1l",  "e4r"],
+          ["tm1l",  "e4l"],
+
+          ["tm1r",  "tm1l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"bolide_spoiler_b_velocita": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Velocita High-Downforce Rear Wing",
+        "value":4600,
+    },
+    "slotType" : "bolide_spoiler_b",
+
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_spoiler_b", ["bolide_spoiler"]],
+    ],
+
+    "nodes": [
+         ["id",    "posX", "posY", "posZ"],
+         //--SPOILER--
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.8},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"group":"bolide_spoiler"},
+         {"nodeWeight":0.65},
+         ["sp1rr",-0.84,   1.91,   0.95],
+         ["sp1r", -0.51,   1.9,    0.97],
+         ["sp1",   0.0,    1.87,   0.97],
+         ["sp1l",  0.51,   1.9,    0.97],
+         ["sp1ll", 0.84,   1.91,   0.95],
+         ["sp2rr",-0.84,   2.09,   1.02],
+         ["sp2r", -0.51,   2.09,   1.03],
+         ["sp2",   0.0,    2.08,   1.04],
+         ["sp2l",  0.51,   2.09,   1.03],
+         ["sp2ll", 0.84,   2.09,   1.02],
+         //struts
+         ["sp3r", -0.51,   1.88,   0.88],
+         ["sp3l",  0.51,   1.88,   0.88],
+         ["sp4r", -0.51,   2.04,   0.86],
+         ["sp4l",  0.51,   2.04,   0.86],
+         //side plates
+         ["sp5rr",-0.84,   1.91,   0.88],
+         ["sp5ll", 0.84,   1.91,   0.88],
+         ["sp6rr",-0.84,   2.09,   0.88],
+         ["sp6ll", 0.84,   2.09,   0.88],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:",  "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+          //main shape
+          {"beamSpring":501000,"beamDamp":100},
+          {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":1.1},
+          ["sp2rr", "sp1rr"],
+          ["sp2r",  "sp1r"],
+          ["sp2",   "sp1"],
+          ["sp2l",  "sp1l"],
+          ["sp2ll", "sp1ll"],
+
+          ["sp1rr", "sp1r"],
+          ["sp1r",  "sp1"],
+          ["sp1",   "sp1l"],
+          ["sp1l",  "sp1ll"],
+          ["sp2rr", "sp2r"],
+          ["sp2r",  "sp2"],
+          ["sp2",   "sp2l"],
+          ["sp2l",  "sp2ll"],
+
+          ["sp2r",  "sp4r"],
+          ["sp1r",  "sp3r"],
+          ["sp2l",  "sp4l"],
+          ["sp1l",  "sp3l"],
+          ["sp4r",  "sp3r"],
+          ["sp4l",  "sp3l"],
+
+          ["sp2rr", "sp6rr"],
+          ["sp6rr", "sp5rr"],
+          ["sp5rr", "sp1rr"],
+          ["sp2ll", "sp6ll"],
+          ["sp6ll", "sp5ll"],
+          ["sp5ll", "sp1ll"],
+
+          //surface cross
+          {"beamDeform":15000,"beamStrength":25000},
+          {"deformLimitExpansion":""},
+          ["sp2rr", "sp1r"],
+          ["sp1rr", "sp2r"],
+          ["sp1ll", "sp2l"],
+          ["sp2ll", "sp1l"],
+          ["sp2r",  "sp1"],
+          ["sp1r",  "sp2"],
+          ["sp1l",  "sp2"],
+          ["sp2l",  "sp1"],
+          ["sp2r",  "sp3r"],
+          ["sp4r",  "sp1r"],
+          ["sp2l",  "sp3l"],
+          ["sp4l",  "sp1l"],
+          //bracing
+          ["sp1rr", "sp3r"],
+          ["sp2rr", "sp4r"],
+          ["sp1ll", "sp3l"],
+          ["sp2ll", "sp4l"],
+          ["sp1",   "sp3l"],
+          ["sp2",   "sp4l"],
+          ["sp2",   "sp4r"],
+          ["sp2",   "sp3r"],
+          ["sp4l",  "sp4r"],
+          ["sp3l",  "sp3r"],
+          ["sp1ll", "sp4l"],
+          ["sp3l",  "sp2ll"],
+          ["sp2rr", "sp3r"],
+          ["sp4r",  "sp1rr"],
+          ["sp2",   "sp3l"],
+          ["sp4l",  "sp1"],
+          ["sp1",   "sp4r"],
+          ["sp3r",  "sp2l"],
+          ["sp3l",  "sp2r"],
+
+          ["sp2rr", "sp5rr"],
+          ["sp1rr", "sp6rr"],
+          ["sp2ll", "sp5ll"],
+          ["sp1ll", "sp6ll"],
+
+          //rigids
+          {"beamSpring":201000,"beamDamp":100},
+          ["sp2rr", "sp2"],
+          ["sp2ll", "sp2"],
+          ["sp1rr", "sp1"],
+          ["sp1ll", "sp1"],
+          ["sp1r",  "sp1l"],
+          ["sp2r",  "sp2l"],
+
+          ["sp5rr", "sp1r"],
+          ["sp5rr", "sp2r"],
+          ["sp6rr", "sp2r"],
+          ["sp6rr", "sp1r"],
+          ["sp5ll", "sp1l"],
+          ["sp6ll", "sp2l"],
+          ["sp5ll", "sp2l"],
+          ["sp6ll", "sp1l"],
+
+          //attach
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":5000,"beamStrength":7000},
+          {"breakGroup":"spoiler_R"},
+          ["sp3r",  "t1r"],
+          ["sp4r",  "t2r"],
+          ["sp4r",  "t1r"],
+          ["sp3r",  "t2r"],
+          ["sp3r",  "t1rr"],
+          ["sp4r",  "t2rr"],
+          ["sp3r",  "t1"],
+          ["sp4r",  "t2"],
+          ["sp1r",  "t3r"],
+          ["sp1rr", "t3r"],
+          ["sp1r",  "t2r"],
+          ["sp1rr", "t2r"],
+          ["sp2r",  "t3r"],
+          ["sp2rr", "t2r",   {"beamSpring":0,"beamDamp":150}],
+          ["sp1rr", "t1r",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":"spoiler_L"},
+          ["sp3l",  "t1l"],
+          ["sp4l",  "t2l"],
+          ["sp3l",  "t2l"],
+          ["t1l",   "sp4l"],
+          ["sp4l",  "t2ll"],
+          ["sp3l",  "t1ll"],
+          ["sp3l",  "t1"],
+          ["sp4l",  "t2"],
+          ["sp1l",  "t3l"],
+          ["sp1ll", "t3l"],
+          ["sp1l",  "t2l"],
+          ["sp1ll", "t2l"],
+          ["sp2l",  "t3l"],
+          ["sp2ll", "t2l",   {"beamSpring":0,"beamDamp":150}],
+          ["sp1ll", "t1l",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":""},
+          //spoiler support beams
+          {"beamType":"|SUPPORT","beamLongBound":6},
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":25000,"beamStrength":125000},
+          {"beamPrecompression":0.95},
+          {"breakGroup":"spoiler_supportBeams"},
+          ["sp1r",  "t2r"],
+          ["sp2r",  "t1r"],
+          ["sp1l",  "t2l"],
+          ["sp2l",  "t1l"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"deformLimitExpansion":1.1},
+    ],
+    "triangles": [
+            ["id1:",  "id2:",  "id3:"],
+            {"dragCoef":17},
+            {"groundModel":"plastic"},
+            ["sp2rr", "sp1rr", "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2rr", "sp1r",  "sp2r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1r",  "sp1",   "sp2r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp1",   "sp2",   {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1",   "sp1l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1",   "sp2l",  "sp2",   {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp1ll", "sp2ll", {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp2ll", "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp3l",  "sp4l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp4l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp4r",  "sp3r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            //side plates
+            ["sp2rr", "sp6rr", "sp5rr", {"liftCoef":30}],
+            ["sp2rr", "sp5rr", "sp1rr", {"liftCoef":30}],
+            ["sp1ll", "sp5ll", "sp2ll", {"liftCoef":30}],
+            ["sp5ll", "sp6ll", "sp2ll", {"liftCoef":30}],
+
+            {"dragCoef":5},
+            {"triangleType":"NONCOLLIDABLE"},
+            {"breakGroup":"spoiler_R"},
+            ["f9l",   "f7",    "f9r",   {"liftCoef":80, "stallAngle":0.35}],
+            {"breakGroup":""},
+            {"triangleType":"NORMALTYPE"},
+            {"group":""},
+
+
+    ],
+},
+"bolide_steering_velocita": {
+    "information":{
+        "authors":"BeamNG, Lincoln",
+        "name":"Velocita Speed-Sensitive Steering",
+        "value":600,
+    },
+    "slotType" : "bolide_steering",
+    "controller": [
+        ["fileName"],
+        ["velocitaSteering", {"speedSensitivity":0.85}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_steeringshaft", ["bolide_chassis"]],
+         ["bolide_tierod", ["bolide_rack_F","bolide_tierod_F"]],
+         ["bolide_steeringrack", ["bolide_rack_F","bolide_subframe_F"]],
+    ],
+    "rails": {
+        "steeringrack":{
+            "links:":["fh6r", "fh6l"], "broken:":[], "looped":false, "capped":true,
+        },
+    },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["fx5r", "steeringrack", true, true, 0.0, 20001000, "FLT_MAX", "FLT_MAX"],
+        ["fx5l", "steeringrack", true, true, 0.0, 20001000, "FLT_MAX", "FLT_MAX"],
+    ],
+    "nodes": [
+         ["id",   "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":true},
+         {"nodeMaterial":"|NM_METAL"},
+         {"frictionCoef":0.5},
+         //rack ends
+         {"group":"bolide_tierod_F"},
+         {"nodeWeight":4.5},
+         ["fh6r",-0.404, -1.12,   0.335],
+         ["fh6l", 0.404, -1.12,   0.335],
+         //rack
+         {"group":"bolide_rack_F"},
+         {"nodeWeight":6.5},
+         ["fx5r",-0.30,  -1.12,   0.335],
+         ["fx5l", 0.30,  -1.12,   0.335],
+         {"group":""},
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$toe_F", "range", "", "Wheel Alignment", 0.995, 0.97, 1.02, "Toe Adjust", "Adjusts the wheel toe-in angle", {"subCategory":"Front"}],
+        ["$steer_center_F", "range", "", "Wheel Alignment", 0, -0.002, 0.002, "Toe Left/Right Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Front"}]
+    ],
+    "beams": [
+            ["id1:", "id2:"],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+            //rack
+            {"beamSpring":8001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            ["fh6r", "fh6l", {"vkTag":"steer_rack_F"}],
+            {"beamSpring":5001000,"beamDamp":250},
+            {"beamDeform":22400,"beamStrength":"FLT_MAX"},
+            ["fx5l", "fx5r"],
+
+            ["fx5l", "fx2l"],
+            ["fx5r", "fx2r"],
+            ["fx5l", "fx2r"],
+            ["fx5r", "fx2l"],
+
+            ["fx5l", "fx4l"],
+            ["fx5r", "fx4r"],
+            ["fx5l", "fx4r"],
+            ["fx5r", "fx4l"],
+
+            ["fx5l", "fx1l"],
+            ["fx5r", "fx1r"],
+            ["fx5l", "fx1r"],
+            ["fx5r", "fx1l"],
+
+            //tie rods
+            {"beamSpring":18001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            ["fh3r", "fh6r", {"vkTag":"steer_link_FR", "beamPrecompression":"$=$toe_F-$steer_center_F","beamPrecompressionTime":0.5}],
+            ["fh3l", "fh6l", {"vkTag":"steer_link_FL", "beamPrecompression":"$=$toe_F+$steer_center_F","beamPrecompressionTime":0.5}],
+            {"deformLimitExpansion":""},
+            //steering dampener
+            {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
+            {"beamLimitSpring":0,"beamLimitDamp":0},
+            {"beamSpring":0},
+            {"beamDamp":25},
+            ["fh3r", "fx3r", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            ["fh3l", "fx3l", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            ["fh3r", "fx4r", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            ["fh3l", "fx4l", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+            {"deformLimitExpansion":1.2},
+    ],
+    "hydros": [
+            ["id1:","id2:"],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+            {"beamSpring":10001000,"beamDamp":25,"beamDeform":"FLT_MAX","beamStrength":275000},
+            ["fh6r","fx5l", {"factor":-0.122,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            ["fh6l","fx5r", {"factor":0.122,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            //reference hydro on the normal steering input (keeps steering wheel animation + UI working); very weak so it adds no force
+            {"beamSpring":1000,"beamDamp":5,"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+            ["f2r","f2l", {"factor":0.0001,"steeringWheelLock":550, "inRate":1.25,"outRate":1.25}],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "input": {
+        "FFBcoef":"$=$ffbstrength*14",
+    },
+},
+"bolide_transaxle_7DCT_velocita_awd": {
+    "information":{
+        "authors":"BeamNG, Lincoln",
+        "name":"Velocita 7-Speed Dual-Clutch Transaxle (AWD)",
+        "value":16000,
+    },
+    "slotType" : "bolide_transaxle",
+    "slots2": [
+        ["name",                  "allowTypes",              "denyTypes", "default",                    "description"],
+        ["bolide_differential_R", ["bolide_differential_R"], [],          "bolide_differential_R_velocita_awd", "Rear Differential"],
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$gear_R", "range", ":1", "Transmission", 3.27, 0.5, 5, "Reverse Gear Ratio", "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_1", "range", ":1", "Transmission", 3.67, 0.5, 5, "1st Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_2", "range", ":1", "Transmission", 2.28, 0.5, 5, "2nd Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_3", "range", ":1", "Transmission", 1.62, 0.5, 5, "3rd Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_4", "range", ":1", "Transmission", 1.27, 0.5, 5, "4th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_5", "range", ":1", "Transmission", 1.00, 0.5, 5, "5th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$gear_6", "range", ":1", "Transmission", 1.00, 0.5, 5, "6th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+        ["$difftorquesplit_C", "range", "", "Differentials", 0.62, 0.5, 0.85, "Base Torque Split", "Percent torque to rear wheels", {"minDis":50, "maxDis":85, "stepDis":1, "subCategory":"Center"}],
+        ["$lsdpreload_C", "range", "N/m", "Differentials", 60, 0, 500, "Pre-load Torque", "Initial cross torque between front and rear wheels", {"subCategory":"Center"}],
+        ["$lsdlockcoef_C", "range", "", "Differentials", 0.15, 0, 0.5, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
+        ["$lsdlockcoefrev_C", "range", "", "Differentials", 0.02, 0, 0.5, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100, "subCategory":"Center"}],
+        ["$lsdpreload_F", "range", "N/m", "Differentials", 40, 0, 300, "Pre-load Torque", "Initial locking torque between left and right wheels", {"subCategory":"Front"}],
+        ["$lsdlockcoef_F", "range", "", "Differentials", 0.08, 0, 0.5, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100, "subCategory":"Front"}],
+        ["$gear_7", "range", ":1", "Transmission", 0.88, 0.5, 5, "7th Gear Ratio",     "Torque multiplication ratio", {"stepDis":0.01}],
+    ],
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+        ["dctGearbox", "gearbox", "mainEngine", 1],
+        ["differential", "transfercase", "gearbox", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_C", "lsdLockCoef":"$lsdlockcoef_C", "lsdRevLockCoef":"$lsdlockcoefrev_C", "diffTorqueSplit":"$difftorquesplit_C", "friction":0.65, "dynamicFriction":0.00044, "torqueLossCoef":0.0105, "uiName":"Center Differential", "defaultVirtualInertia":0.1, "speedLimitCoef":0.1}],
+        ["shaft", "driveshaft_F", "transfercase", 2, {"friction":0.5, "dynamicFriction":0.0004, "uiName":"Front Driveshaft"}],
+        //front ratio = 2.90 rear final drive x (626.9 mm front tire / 640.9 mm rear tire) so both axles turn at matching road speed
+        ["differential", "differential_F", "driveshaft_F", 1, {"diffType":"lsd", "gearRatio":2.837, "lsdPreload":"$lsdpreload_F", "lsdLockCoef":"$lsdlockcoef_F", "lsdRevLockCoef":0.0, "uiName":"Front Differential", "defaultVirtualInertia":0.25, "friction":3.4, "dynamicFriction":0.0016, "torqueLossCoef":0.03}],
+    ],
+    "gearbox": {
+        "uiName":"Gearbox",
+        "gearRatios":["$=-$gear_R", 0, "$gear_1", "$gear_2", "$gear_3", "$gear_4", "$gear_5", "$gear_6", "$gear_7"],
+        "parkLockTorque":2000,
+        "additionalEngineInertia":0.04,
+        "friction":1.62,
+        "dynamicFriction":0.0016,
+        "torqueLossCoef": 0.0135,
+
+        "gearWhineCoefsInput":  [0.33, 0.00, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33],
+        "gearWhineCoefsOutput": [0.00, 0.00, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33, 0.33],
+        "gearWhineInputEvent": "event:>Vehicle>Transmission>straight_01>twine_in_racegt3",
+        "gearWhineOutputEvent": "event:>Vehicle>Transmission>straight_01>twine_out_racegt3",
+
+        "forwardInputPitchCoef":0.85
+        "forwardOutputPitchCoef":0.85
+        "reverseInputPitchCoef":0.7
+        "reverseOutputPitchCoef":0.7
+
+        //"gearWhineInputPitchCoefSmoothing":50
+        //"gearWhineOutputPitchCoefSmoothing":50
+        //"gearWhineInputVolumeCoefSmoothing":10
+        //"gearWhineOutputVolumeCoefSmoothing":10
+
+        //"gearWhineFixedCoefInput": 0.5
+        //"gearWhineFixedCoefOutput": 0.8
+
+    },
+    "vehicleController": {
+        "automaticModes":"PRNDSM",
+        "calculateOptimalLoadShiftPoints": true,
+        "shiftDownRPMOffsetCoef":1.25,
+        "aggressionHoldOffThrottleDelay":3,
+        "lowShiftDownRPM":[0,0,0,2400,2700,2700,2700,2700,2700],
+        "lowShiftUpRPM":[0,0,4500,4400,4300,4200,4100,4000],
+        "clutchLaunchStartRPM": 3500,
+        "clutchLaunchTargetRPM": 4500,
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_transaxle", ["bolide_engine","bolide_transaxle"]],
+    ],
+    "nodes": [
+         ["id",    "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":true},
+         //transaxle
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"bolide_transaxle"},
+         {"nodeWeight":7.0},
+         ["tra1",  0.0,    1.26,   0.359],
+         ["tra2r",-0.113,  1.669,  0.45],
+         ["tra2l", 0.113,  1.669,  0.45],
+         ["tra3",  0.0,    1.669,  0.21],
+         {"group":""},
+
+         //transmission mount nodes
+         {"nodeWeight":2.0},
+         ["tm1r", -0.138,  1.4,    0.297],
+         ["tm1l",  0.138,  1.4,    0.297],
+    ],
+    "beams": [
+          ["id1:",  "id2:"],
+          //transaxle
+          {"deformLimitExpansion":1.2},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":8501000,"beamDamp":250},
+          {"beamDeform":1120000,"beamStrength":"FLT_MAX"},
+          ["e2l",   "tra1"],
+          ["e2r",   "tra1"],
+          ["tra1",  "e4l"],
+          ["tra1",  "e4r"],
+          ["tra1",  "tra3"],
+          ["tra1",  "tra2r"],
+          ["tra1",  "tra2l"],
+          ["tra2l", "tra2r"],
+          ["tra2r", "tra3"],
+          ["tra3",  "tra2l"],
+          ["tra2r", "e2r"],
+          ["tra2r", "e2l"],
+          ["tra2r", "e4r"],
+          ["tra2r", "e4l"],
+          ["tra2l", "e2l"],
+          ["tra2l", "e2r"],
+          ["tra2l", "e4r"],
+          ["tra2l", "e4l"],
+          ["tra3",  "e2r"],
+          ["tra3",  "e2l"],
+          ["tra3",  "e4l"],
+          ["tra3",  "e4r"],
+
+          //transmission mount nodes
+          {"beamSpring":2501000,"beamDamp":50},
+          {"beamDeform":63000,"beamStrength":"FLT_MAX"},
+          ["tm1r",  "tra2r"],
+          ["tm1r",  "tra2l"],
+          ["tm1r",  "tra3"],
+          ["tm1r",  "tra1"],
+          ["tm1r",  "e2l"],
+          ["tm1r",  "e2r"],
+          ["tm1r",  "e4r"],
+          ["tm1r",  "e4l"],
+
+          ["tm1l",  "tra2r"],
+          ["tm1l",  "tra2l"],
+          ["tm1l",  "tra3"],
+          ["tm1l",  "tra1"],
+          ["tm1l",  "e2l"],
+          ["tm1l",  "e2r"],
+          ["tm1l",  "e4r"],
+          ["tm1l",  "e4l"],
+
+          ["tm1r",  "tm1l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"bolide_differential_R_velocita_awd": {
+    "information":{
+        "authors":"BeamNG, Lincoln",
+        "name":"Velocita AWD Rear Differential",
+        "value":1850,
+    },
+    "slotType" : "bolide_differential_R",
+    "slots2": [
+        ["name",                "allowTypes",            "denyTypes", "default",                  "description"],
+        ["bolide_finaldrive_R", ["bolide_finaldrive_R"], [],          "bolide_finaldrive_R_race", "Rear Final Drive", {"coreSlot":true}],
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$lsdpreload_R", "range", "N/m", "Differentials", 125, 0, 500, "Pre-load Torque", "Initial locking torque between left and right wheels"]
+        ["$lsdlockcoef_R", "range", "", "Differentials", 0.15, 0, 0.5, "Power Lock Rate", "Additional locking torque proportional to engine torque", {"minDis":0, "maxDis":100}],
+        ["$lsdlockcoefrev_R", "range", "", "Differentials", 0, 0, 0.5, "Coast Lock Rate", "Additional locking torque proportional to engine braking", {"minDis":0, "maxDis":100}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["differential", "differential_R", "transfercase", 1, {"diffType":"lsd", "lsdPreload":"$lsdpreload_R", "lsdLockCoef":"$lsdlockcoef_R", "lsdRevLockCoef":"$lsdlockcoefrev_R", "uiName":"Rear Differential","defaultVirtualInertia":0.25}],
+    ],
+    "differential_R": {
+        "friction": 4.13,
+        "dynamicFriction": 0.00195,
+        "torqueLossCoef": 0.030,
+    },
+    "beams": [
+          ["id1:", "id2:"],
+    ],
+},
+    "bolide_mod_velocita_dse_awd": {
+        "information": {
+            "authors": "Lincoln",
+            "name": "Velocita AWD Driving Electronics (TCS + ESC + Launch Control)",
+            "value": 4500
+        },
+        "slotType": "bolide_mod",
+        "controller": [
+            [
+                "fileName"
+            ],
+            [
+                "drivingDynamics/CMU",
+                {
+                    "name": "CMU",
+                    "debugSettings": {
+                        "peerIP": "127.0.0.1"
+                    }
+                }
+            ],
+            [
+                "drivingDynamics/sensors/sensorHub"
+            ],
+            [
+                "drivingDynamics/sensors/virtualSensors",
+                {
+                    "name": "sensors"
+                }
+            ],
+            [
+                "drivingDynamics/sensors/vehicleData",
+                {
+                    "name": "vehicleData"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/components/motorTorqueControl",
+                {
+                    "name": "motorTorqueControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/components/brakeControl",
+                {
+                    "name": "brakeControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/tractionControl",
+                {
+                    "name": "tractionControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/slipProviders/virtualSpeedSlip"
+            ],
+            [
+                "drivingDynamics/supervisors/yawControl",
+                {
+                    "name": "yawControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/yawProviders/STMEstimate"
+            ],
+            [
+                "adaptiveBrakeLights"
+            ],
+            [
+                "driveModes"
+            ],
+            [
+                "velocitaDrift",
+                {
+                    "driftSplit": 0.88,
+                    "driftRearLock": 0.45,
+                    "driftRearPreload": 250
+                }
+            ],
+            [
+                "drivingDynamics/actuators/activeDiffBias",
+                {
+                    "name": "activeBiasRear",
+                    "differentialName": "differential_R"
+                }
+            ]
+        ],
+        "vehicleData": {
+            "skewStiffnessFront": 125000,
+            "skewStiffnessRear": 215000
+        },
+        "tractionControl": {
+            "tractionControlledMotors": [
+                "mainEngine"
+            ]
+        },
+        "motorTorqueControl": {
+            "useForTractionControl": true,
+            "tractionControl": {
+                "wheelGroupSettings": [
+                    [
+                        "motorName",
+                        "slipThreshold",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "mainEngine",
+                        0.13,
+                        2.0,
+                        1.2,
+                        0.1,
+                        20,
+                        6
+                    ]
+                ]
+            },
+            "useForYawControl": true,
+            "yawControl": {
+                "yawControlledMotors": [
+                    "mainEngine"
+                ],
+                "PIDSettings": [
+                    [
+                        "type",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "yawAV",
+                        1.5,
+                        0.9,
+                        0.0,
+                        50,
+                        20
+                    ],
+                    [
+                        "slipAngle",
+                        2.0,
+                        1.0,
+                        0.0,
+                        10,
+                        1
+                    ]
+                ],
+                "yawAVThreshold": 0.3,
+                "slipAngleThreshold": 0.05
+            }
+        },
+        "brakeControl": {
+            "useForTractionControl": true,
+            "tractionControl": {
+                "wheelGroupSettings": [
+                    [
+                        "motorName",
+                        "slipThreshold",
+                        "slipRangeThreshold",
+                        "maxVelocity",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "mainEngine",
+                        0.1,
+                        0.2,
+                        10,
+                        1,
+                        1.5,
+                        0,
+                        20,
+                        2
+                    ]
+                ]
+            },
+            "yawControl": {
+                "PIDSettings": [
+                    [
+                        "type",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "yawAV",
+                        3.0,
+                        0.8,
+                        0.0,
+                        100,
+                        10
+                    ],
+                    [
+                        "slipAngle",
+                        2.0,
+                        1.0,
+                        0.0,
+                        10,
+                        1
+                    ]
+                ],
+                "yawAVThreshold": 0.22,
+                "slipAngleThreshold": 0.045
+            }
+        },
+        "driveModes": {
+            "enabledModes": [
+                "safe",
+                "sport",
+                "drift",
+                "off"
+            ],
+            "defaultMode": "safe",
+            "defaultSettings": [
+                [
+                    "type"
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "tractionControl",
+                        "isEnabled": true
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "yawControl",
+                        "isEnabled": true
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "motorTorqueControl",
+                        "isEnabled": true,
+                        "tractionControl": "default",
+                        "yawControl": "default"
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "brakeControl",
+                        "isEnabled": true,
+                        "yawControl": "default"
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "twoStepLaunch",
+                        "isEnabled": true,
+                        "launchRPM": 6500
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "velocitaDrift",
+                        "isEnabled": false
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "activeBiasRear",
+                        "isEnabled": true,
+                        "maxBiasOffset": 0.15
+                    }
+                ]
+            ],
+            "modes": {
+                "safe": {
+                    "name": "Full Assist",
+                    "order": 10,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "238BE6",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "sport": {
+                    "name": "Sport (more slide)",
+                    "order": 20,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": true,
+                                "maxBiasOffset": 0.2
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.22,
+                                "yawControl.slipAngleThreshold": 0.09
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "brakeControl",
+                                "yawControl.slipAngleThreshold": 0.12,
+                                "yawControl.yawAvThreshold": 0.5
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "DA0C0C",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "off": {
+                    "name": "TCS & ESC Off",
+                    "order": 50,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": false,
+                                "maxBiasOffset": 0.0
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "tractionControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "yawControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "brakeControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "999999",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "drift": {
+                    "name": "Drift (88% rear)",
+                    "order": 30,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": true,
+                                "maxBiasOffset": 0.25
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "velocitaDrift",
+                                "isEnabled": true
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "tractionControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "yawControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "brakeControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "FF8C00",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                }
+            }
+        }
+    },
+"bolide_steering_velocita_awd": {
+    "information":{
+        "authors":"BeamNG, Lincoln",
+        "name":"Velocita Speed-Sensitive Steering (AWD tune)",
+        "value":600,
+    },
+    "slotType" : "bolide_steering",
+    "controller": [
+        ["fileName"],
+        ["velocitaSteering", {"speedSensitivity":0.55}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_steeringshaft", ["bolide_chassis"]],
+         ["bolide_tierod", ["bolide_rack_F","bolide_tierod_F"]],
+         ["bolide_steeringrack", ["bolide_rack_F","bolide_subframe_F"]],
+    ],
+    "rails": {
+        "steeringrack":{
+            "links:":["fh6r", "fh6l"], "broken:":[], "looped":false, "capped":true,
+        },
+    },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["fx5r", "steeringrack", true, true, 0.0, 20001000, "FLT_MAX", "FLT_MAX"],
+        ["fx5l", "steeringrack", true, true, 0.0, 20001000, "FLT_MAX", "FLT_MAX"],
+    ],
+    "nodes": [
+         ["id",   "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":true},
+         {"nodeMaterial":"|NM_METAL"},
+         {"frictionCoef":0.5},
+         //rack ends
+         {"group":"bolide_tierod_F"},
+         {"nodeWeight":4.5},
+         ["fh6r",-0.404, -1.12,   0.335],
+         ["fh6l", 0.404, -1.12,   0.335],
+         //rack
+         {"group":"bolide_rack_F"},
+         {"nodeWeight":6.5},
+         ["fx5r",-0.30,  -1.12,   0.335],
+         ["fx5l", 0.30,  -1.12,   0.335],
+         {"group":""},
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$toe_F", "range", "", "Wheel Alignment", 0.995, 0.97, 1.02, "Toe Adjust", "Adjusts the wheel toe-in angle", {"subCategory":"Front"}],
+        ["$steer_center_F", "range", "", "Wheel Alignment", 0, -0.002, 0.002, "Toe Left/Right Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Front"}]
+    ],
+    "beams": [
+            ["id1:", "id2:"],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+            //rack
+            {"beamSpring":8001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            ["fh6r", "fh6l", {"vkTag":"steer_rack_F"}],
+            {"beamSpring":5001000,"beamDamp":250},
+            {"beamDeform":22400,"beamStrength":"FLT_MAX"},
+            ["fx5l", "fx5r"],
+
+            ["fx5l", "fx2l"],
+            ["fx5r", "fx2r"],
+            ["fx5l", "fx2r"],
+            ["fx5r", "fx2l"],
+
+            ["fx5l", "fx4l"],
+            ["fx5r", "fx4r"],
+            ["fx5l", "fx4r"],
+            ["fx5r", "fx4l"],
+
+            ["fx5l", "fx1l"],
+            ["fx5r", "fx1r"],
+            ["fx5l", "fx1r"],
+            ["fx5r", "fx1l"],
+
+            //tie rods
+            {"beamSpring":18001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            ["fh3r", "fh6r", {"vkTag":"steer_link_FR", "beamPrecompression":"$=$toe_F-$steer_center_F","beamPrecompressionTime":0.5}],
+            ["fh3l", "fh6l", {"vkTag":"steer_link_FL", "beamPrecompression":"$=$toe_F+$steer_center_F","beamPrecompressionTime":0.5}],
+            {"deformLimitExpansion":""},
+            //steering dampener
+            {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
+            {"beamLimitSpring":0,"beamLimitDamp":0},
+            {"beamSpring":0},
+            {"beamDamp":25},
+            ["fh3r", "fx3r", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            ["fh3l", "fx3l", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            ["fh3r", "fx4r", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            ["fh3l", "fx4l", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+            {"deformLimitExpansion":1.2},
+    ],
+    "hydros": [
+            ["id1:","id2:"],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+            {"beamSpring":10001000,"beamDamp":25,"beamDeform":"FLT_MAX","beamStrength":275000},
+            ["fh6r","fx5l", {"factor":-0.122,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            ["fh6l","fx5r", {"factor":0.122,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            //reference hydro on the normal steering input (keeps steering wheel animation + UI working); very weak so it adds no force
+            {"beamSpring":1000,"beamDamp":5,"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+            ["f2r","f2l", {"factor":0.0001,"steeringWheelLock":550, "inRate":1.25,"outRate":1.25}],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "input": {
+        "FFBcoef":"$=$ffbstrength*14",
+    },
+},
+"bolide_spoiler_b_velocita_awd": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Velocita Balanced-Aero Wing (AWD)",
+        "value":4600,
+    },
+    "slotType" : "bolide_spoiler_b",
+
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_spoiler_b", ["bolide_spoiler"]],
+    ],
+
+    "nodes": [
+         ["id",    "posX", "posY", "posZ"],
+         //--SPOILER--
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.8},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"group":"bolide_spoiler"},
+         {"nodeWeight":0.65},
+         ["sp1rr",-0.84,   1.91,   0.95],
+         ["sp1r", -0.51,   1.9,    0.97],
+         ["sp1",   0.0,    1.87,   0.97],
+         ["sp1l",  0.51,   1.9,    0.97],
+         ["sp1ll", 0.84,   1.91,   0.95],
+         ["sp2rr",-0.84,   2.09,   1.02],
+         ["sp2r", -0.51,   2.09,   1.03],
+         ["sp2",   0.0,    2.08,   1.04],
+         ["sp2l",  0.51,   2.09,   1.03],
+         ["sp2ll", 0.84,   2.09,   1.02],
+         //struts
+         ["sp3r", -0.51,   1.88,   0.88],
+         ["sp3l",  0.51,   1.88,   0.88],
+         ["sp4r", -0.51,   2.04,   0.86],
+         ["sp4l",  0.51,   2.04,   0.86],
+         //side plates
+         ["sp5rr",-0.84,   1.91,   0.88],
+         ["sp5ll", 0.84,   1.91,   0.88],
+         ["sp6rr",-0.84,   2.09,   0.88],
+         ["sp6ll", 0.84,   2.09,   0.88],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:",  "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+          //main shape
+          {"beamSpring":501000,"beamDamp":100},
+          {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":1.1},
+          ["sp2rr", "sp1rr"],
+          ["sp2r",  "sp1r"],
+          ["sp2",   "sp1"],
+          ["sp2l",  "sp1l"],
+          ["sp2ll", "sp1ll"],
+
+          ["sp1rr", "sp1r"],
+          ["sp1r",  "sp1"],
+          ["sp1",   "sp1l"],
+          ["sp1l",  "sp1ll"],
+          ["sp2rr", "sp2r"],
+          ["sp2r",  "sp2"],
+          ["sp2",   "sp2l"],
+          ["sp2l",  "sp2ll"],
+
+          ["sp2r",  "sp4r"],
+          ["sp1r",  "sp3r"],
+          ["sp2l",  "sp4l"],
+          ["sp1l",  "sp3l"],
+          ["sp4r",  "sp3r"],
+          ["sp4l",  "sp3l"],
+
+          ["sp2rr", "sp6rr"],
+          ["sp6rr", "sp5rr"],
+          ["sp5rr", "sp1rr"],
+          ["sp2ll", "sp6ll"],
+          ["sp6ll", "sp5ll"],
+          ["sp5ll", "sp1ll"],
+
+          //surface cross
+          {"beamDeform":15000,"beamStrength":25000},
+          {"deformLimitExpansion":""},
+          ["sp2rr", "sp1r"],
+          ["sp1rr", "sp2r"],
+          ["sp1ll", "sp2l"],
+          ["sp2ll", "sp1l"],
+          ["sp2r",  "sp1"],
+          ["sp1r",  "sp2"],
+          ["sp1l",  "sp2"],
+          ["sp2l",  "sp1"],
+          ["sp2r",  "sp3r"],
+          ["sp4r",  "sp1r"],
+          ["sp2l",  "sp3l"],
+          ["sp4l",  "sp1l"],
+          //bracing
+          ["sp1rr", "sp3r"],
+          ["sp2rr", "sp4r"],
+          ["sp1ll", "sp3l"],
+          ["sp2ll", "sp4l"],
+          ["sp1",   "sp3l"],
+          ["sp2",   "sp4l"],
+          ["sp2",   "sp4r"],
+          ["sp2",   "sp3r"],
+          ["sp4l",  "sp4r"],
+          ["sp3l",  "sp3r"],
+          ["sp1ll", "sp4l"],
+          ["sp3l",  "sp2ll"],
+          ["sp2rr", "sp3r"],
+          ["sp4r",  "sp1rr"],
+          ["sp2",   "sp3l"],
+          ["sp4l",  "sp1"],
+          ["sp1",   "sp4r"],
+          ["sp3r",  "sp2l"],
+          ["sp3l",  "sp2r"],
+
+          ["sp2rr", "sp5rr"],
+          ["sp1rr", "sp6rr"],
+          ["sp2ll", "sp5ll"],
+          ["sp1ll", "sp6ll"],
+
+          //rigids
+          {"beamSpring":201000,"beamDamp":100},
+          ["sp2rr", "sp2"],
+          ["sp2ll", "sp2"],
+          ["sp1rr", "sp1"],
+          ["sp1ll", "sp1"],
+          ["sp1r",  "sp1l"],
+          ["sp2r",  "sp2l"],
+
+          ["sp5rr", "sp1r"],
+          ["sp5rr", "sp2r"],
+          ["sp6rr", "sp2r"],
+          ["sp6rr", "sp1r"],
+          ["sp5ll", "sp1l"],
+          ["sp6ll", "sp2l"],
+          ["sp5ll", "sp2l"],
+          ["sp6ll", "sp1l"],
+
+          //attach
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":5000,"beamStrength":7000},
+          {"breakGroup":"spoiler_R"},
+          ["sp3r",  "t1r"],
+          ["sp4r",  "t2r"],
+          ["sp4r",  "t1r"],
+          ["sp3r",  "t2r"],
+          ["sp3r",  "t1rr"],
+          ["sp4r",  "t2rr"],
+          ["sp3r",  "t1"],
+          ["sp4r",  "t2"],
+          ["sp1r",  "t3r"],
+          ["sp1rr", "t3r"],
+          ["sp1r",  "t2r"],
+          ["sp1rr", "t2r"],
+          ["sp2r",  "t3r"],
+          ["sp2rr", "t2r",   {"beamSpring":0,"beamDamp":150}],
+          ["sp1rr", "t1r",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":"spoiler_L"},
+          ["sp3l",  "t1l"],
+          ["sp4l",  "t2l"],
+          ["sp3l",  "t2l"],
+          ["t1l",   "sp4l"],
+          ["sp4l",  "t2ll"],
+          ["sp3l",  "t1ll"],
+          ["sp3l",  "t1"],
+          ["sp4l",  "t2"],
+          ["sp1l",  "t3l"],
+          ["sp1ll", "t3l"],
+          ["sp1l",  "t2l"],
+          ["sp1ll", "t2l"],
+          ["sp2l",  "t3l"],
+          ["sp2ll", "t2l",   {"beamSpring":0,"beamDamp":150}],
+          ["sp1ll", "t1l",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":""},
+          //spoiler support beams
+          {"beamType":"|SUPPORT","beamLongBound":6},
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":25000,"beamStrength":125000},
+          {"beamPrecompression":0.95},
+          {"breakGroup":"spoiler_supportBeams"},
+          ["sp1r",  "t2r"],
+          ["sp2r",  "t1r"],
+          ["sp1l",  "t2l"],
+          ["sp2l",  "t1l"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"deformLimitExpansion":1.1},
+    ],
+    "triangles": [
+            ["id1:",  "id2:",  "id3:"],
+            {"dragCoef":17},
+            {"groundModel":"plastic"},
+            ["sp2rr", "sp1rr", "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2rr", "sp1r",  "sp2r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1r",  "sp1",   "sp2r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp1",   "sp2",   {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1",   "sp1l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1",   "sp2l",  "sp2",   {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp1ll", "sp2ll", {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp2ll", "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp3l",  "sp4l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp4l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp4r",  "sp3r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            //side plates
+            ["sp2rr", "sp6rr", "sp5rr", {"liftCoef":30}],
+            ["sp2rr", "sp5rr", "sp1rr", {"liftCoef":30}],
+            ["sp1ll", "sp5ll", "sp2ll", {"liftCoef":30}],
+            ["sp5ll", "sp6ll", "sp2ll", {"liftCoef":30}],
+
+            {"dragCoef":5},
+            {"triangleType":"NONCOLLIDABLE"},
+            {"breakGroup":"spoiler_R"},
+            ["f9l",   "f7",    "f9r",   {"liftCoef":175, "stallAngle":0.45}],
+            {"breakGroup":""},
+            {"triangleType":"NORMALTYPE"},
+            {"group":""},
+
+
+    ],
+},
+"bolide_radiator_velocita": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Velocita Endurance Radiator",
+        "value":950,
+    },
+    "slotType" : "bolide_radiator",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_radiator", ["bolide_radiator"]],
+         ["bolide_radsupport", ["bolide_radiator", "bolide_subframe_F"]],
+         ["bolide_radiator_hose_F", ["bolide_radiator", "bolide_subframe_F"]],
+         ["bolide_radiator_fan_shroud", ["bolide_radiator"]],
+         ["bolide_airduct_F", ["bolide_subframe_F"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        ["radiatorFanSpin"  , "bolide_radiator_fan_R", "rad1r","rad1l","fx1r",  {"x":9, "y":0, "z":180}, {"x":0, "y":0.25, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1],
+        ["radiatorFanSpin"  , "bolide_radiator_fan_L", "rad1l","rad1r","fx1l",  {"x":9, "y":0, "z":0},   {"x":0, "y":0.25, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1]
+    ],
+    "mainEngine":{
+        "radiatorArea":0.46,
+        "radiatorEffectiveness":46000,
+        "coolantVolume":19,
+        "radiatorFanType":"electric",
+        "radiatorFanTemperature":94,
+        "radiatorFanMaxAirSpeed":6.5,
+        "thermostatTemperature":90,
+        "radiatorFanLoopEvent": "event:>Vehicle>Cooling Fan>Electric_05",
+        "radiatorFanVolume": 0.7,
+
+        //damage deformGroups
+        "deformGroups_radiator":["radiator_damage", "radhose_damage"],
+    },
+    "nodes": [
+         ["id",    "posX", "posY", "posZ"],
+         //radiator
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":false},
+         {"collision":true},
+         {"group":"bolide_radiator"},
+         {"engineGroup":"radiator"},
+         {"nodeWeight":1.0},
+
+         {"chemEnergy":200,"burnRate":0.4,"flashPoint":250,"specHeat":0.8,"smokePoint":150,"selfIgnitionCoef":false},
+         ["rad1r",-0.291, -1.579,  0.574],
+         ["rad1l", 0.291, -1.579,  0.574],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false,"specHeat":false,"smokePoint":false,"selfIgnitionCoef":false},
+
+         {"engineGroup":""},
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:",  "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":1500000,"beamDamp":150},
+          {"beamDeform":3500,"beamStrength":"FLT_MAX"},
+          {"deformGroup":"radiator_damage","deformationTriggerRatio":0.03},
+          //radiator
+          {"deformLimitExpansion":""},
+          ["rad1r", "rad1l"],
+          ["rad1r", "fx1r"],
+          ["rad1l", "fx1l"],
+          ["fx1l",  "rad1r"],
+          ["rad1l", "fx1r"],
+          ["rad1r", "fx3r"],
+          ["rad1l", "fx3l"],
+          ["rad1l", "fx9l"],
+          ["rad1r", "fx9r"],
+          ["rad1r", "fx9l"],
+          ["rad1l", "fx9r"],
+          ["rad1r", "fx3l"],
+          ["rad1l", "fx3r"],
+          {"deformGroup":"", "deformationTriggerRatio":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"bolide_oilcooler_velocita": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Velocita Twin-Core Oil Cooler",
+        "value":110,
+    },
+    "slotType" : "bolide_oilcooler",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_oilcooler", ["bolide_tailcone_support", "bolide_oilcooler"]],
+         {"deformGroup":"oilcooler_lines_damage", "deformMaterialBase":"oilcooler", "deformMaterialDamaged":"invis"}
+         ["bolide_oilcooler_lines", ["bolide_oilcooler", "bolide_engine"]],
+         {"deformGroup":""},
+    ],
+    "mainEngine":{
+        "oilRadiatorArea":0.26,
+        "oilRadiatorEffectiveness":1900,
+        "oilThermostatTemperature":110,
+
+        //damage deformGroups
+        "deformGroups_oilRadiator":["oilcooler_damage", "oilcooler_lines_damage"]
+    },
+    "nodes": [
+        ["id",   "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"nodeMaterial":"|NM_METAL"},
+        {"selfCollision":false},
+        {"collision":true},
+
+        {"nodeWeight":1.0},
+        {"group":"bolide_oilcooler"},
+        {"chemEnergy":200,"burnRate":0.4,"flashPoint":250,"specHeat":0.8,"smokePoint":150,"selfIgnitionCoef":false},
+        ["oc1r",-0.23,   1.778,  0.67],
+        ["oc1l", 0.23,   1.778,  0.67],
+        {"engineGroup":""},
+        {"group":""},
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        {"beamSpring":500000,"beamDamp":50},
+        {"beamDeform":4500,"beamStrength":"FLT_MAX"},
+        {"deformGroup":"oilcooler_damage","deformationTriggerRatio":0.05},
+        {"deformLimitExpansion":""},
+        ["oc1r", "tcs1"],
+        ["oc1r", "tcs1r"],
+        ["oc1r", "tcs1l"],
+        ["oc1r", "tcs3"],
+        ["oc1r", "tcs3rr"],
+        ["oc1r", "tcs3ll"],
+        ["oc1r", "tcs5r"],
+        ["oc1r", "tcs5"],
+        ["oc1r", "tcs5l"],
+        ["oc1r", "tcs4r"],
+        ["oc1r", "tcs4l"],
+
+        ["oc1l", "tcs1"],
+        ["oc1l", "tcs1r"],
+        ["oc1l", "tcs1l"],
+        ["oc1l", "tcs3"],
+        ["oc1l", "tcs3rr"],
+        ["oc1l", "tcs3ll"],
+        ["oc1l", "tcs5r"],
+        ["oc1l", "tcs5"],
+        ["oc1l", "tcs5l"],
+        ["oc1l", "tcs4r"],
+        ["oc1l", "tcs4l"],
+
+        ["oc1l", "oc1r"],
+
+        // lines
+        {"beamSpring":10000,"beamDamp":50},
+        {"beamDeform":3500,"beamStrength":24500},
+        {"deformGroup":"oilcooler_lines_damage","deformationTriggerRatio":0.02},
+        ["oc1l", "e4l"],
+        ["oc1l", "e2l"],
+        ["oc1r", "e4l"],
+        ["oc1r", "e2l"],
+        {"deformGroup":"", "deformationTriggerRatio":""},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+"bolide_spoiler_b_velocita_active": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Velocita Active Rear Wing",
+        "value":4600,
+    },
+    "slotType" : "bolide_spoiler_b",
+    "controller": [
+        ["fileName"],
+        ["velocitaActiveWing"],
+    ],
+
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_spoiler_b", ["bolide_spoiler"]],
+    ],
+
+    "nodes": [
+         ["id",    "posX", "posY", "posZ"],
+         //--SPOILER--
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.8},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"group":"bolide_spoiler"},
+         {"nodeWeight":0.9},
+         ["sp1rr",-0.84,   1.91,   0.95],
+         ["sp1r", -0.51,   1.9,    0.97],
+         ["sp1",   0.0,    1.87,   0.97],
+         ["sp1l",  0.51,   1.9,    0.97],
+         ["sp1ll", 0.84,   1.91,   0.95],
+         ["sp2rr",-0.84,   2.09,   1.02],
+         ["sp2r", -0.51,   2.09,   1.03],
+         ["sp2",   0.0,    2.08,   1.04],
+         ["sp2l",  0.51,   2.09,   1.03],
+         ["sp2ll", 0.84,   2.09,   1.02],
+         //struts
+         ["sp3r", -0.51,   1.88,   0.88],
+         ["sp3l",  0.51,   1.88,   0.88],
+         ["sp4r", -0.51,   2.04,   0.86],
+         ["sp4l",  0.51,   2.04,   0.86],
+         //side plates
+         ["sp5rr",-0.84,   1.91,   0.88],
+         ["sp5ll", 0.84,   1.91,   0.88],
+         ["sp6rr",-0.84,   2.09,   0.88],
+         ["sp6ll", 0.84,   2.09,   0.88],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:",  "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+          //main shape
+          {"beamSpring":501000,"beamDamp":100},
+          {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":1.1},
+          ["sp2rr", "sp1rr"],
+          ["sp2r",  "sp1r"],
+          ["sp2",   "sp1"],
+          ["sp2l",  "sp1l"],
+          ["sp2ll", "sp1ll"],
+
+          ["sp1rr", "sp1r"],
+          ["sp1r",  "sp1"],
+          ["sp1",   "sp1l"],
+          ["sp1l",  "sp1ll"],
+          ["sp2rr", "sp2r"],
+          ["sp2r",  "sp2"],
+          ["sp2",   "sp2l"],
+          ["sp2l",  "sp2ll"],
+
+          ["sp1r",  "sp3r"],
+          ["sp1l",  "sp3l"],
+          ["sp4r",  "sp3r"],
+          ["sp4l",  "sp3l"],
+
+          ["sp2rr", "sp6rr"],
+          ["sp6rr", "sp5rr"],
+          ["sp5rr", "sp1rr"],
+          ["sp2ll", "sp6ll"],
+          ["sp6ll", "sp5ll"],
+          ["sp5ll", "sp1ll"],
+
+          //surface cross
+          {"beamDeform":15000,"beamStrength":25000},
+          {"deformLimitExpansion":""},
+          ["sp2rr", "sp1r"],
+          ["sp1rr", "sp2r"],
+          ["sp1ll", "sp2l"],
+          ["sp2ll", "sp1l"],
+          ["sp2r",  "sp1"],
+          ["sp1r",  "sp2"],
+          ["sp1l",  "sp2"],
+          ["sp2l",  "sp1"],
+          ["sp4r",  "sp1r"],
+          ["sp4l",  "sp1l"],
+          //bracing
+          ["sp1rr", "sp3r"],
+          ["sp1ll", "sp3l"],
+          ["sp1",   "sp3l"],
+          ["sp4l",  "sp4r"],
+          ["sp3l",  "sp3r"],
+          ["sp1ll", "sp4l"],
+          ["sp4r",  "sp1rr"],
+          ["sp4l",  "sp1"],
+          ["sp1",   "sp4r"],
+
+          ["sp2rr", "sp5rr"],
+          ["sp1rr", "sp6rr"],
+          ["sp2ll", "sp5ll"],
+          ["sp1ll", "sp6ll"],
+
+          //rigids
+          {"beamSpring":201000,"beamDamp":100},
+          ["sp2rr", "sp2"],
+          ["sp2ll", "sp2"],
+          ["sp1rr", "sp1"],
+          ["sp1ll", "sp1"],
+          ["sp1r",  "sp1l"],
+          ["sp2r",  "sp2l"],
+
+          ["sp5rr", "sp1r"],
+          ["sp5rr", "sp2r"],
+          ["sp6rr", "sp2r"],
+          ["sp6rr", "sp1r"],
+          ["sp5ll", "sp1l"],
+          ["sp6ll", "sp2l"],
+          ["sp5ll", "sp2l"],
+          ["sp6ll", "sp1l"],
+
+          //attach
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":5000,"beamStrength":7000},
+          {"breakGroup":"spoiler_R"},
+          ["sp3r",  "t1r"],
+          ["sp4r",  "t2r"],
+          ["sp4r",  "t1r"],
+          ["sp3r",  "t2r"],
+          ["sp3r",  "t1rr"],
+          ["sp4r",  "t2rr"],
+          ["sp3r",  "t1"],
+          ["sp4r",  "t2"],
+          ["sp1r",  "t3r"],
+          ["sp1rr", "t3r"],
+          ["sp1r",  "t2r"],
+          ["sp1rr", "t2r"],
+          ["sp1rr", "t1r",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":"spoiler_L"},
+          ["sp3l",  "t1l"],
+          ["sp4l",  "t2l"],
+          ["sp3l",  "t2l"],
+          ["t1l",   "sp4l"],
+          ["sp4l",  "t2ll"],
+          ["sp3l",  "t1ll"],
+          ["sp3l",  "t1"],
+          ["sp4l",  "t2"],
+          ["sp1l",  "t3l"],
+          ["sp1ll", "t3l"],
+          ["sp1l",  "t2l"],
+          ["sp1ll", "t2l"],
+          ["sp1ll", "t1l",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":""},
+          //spoiler support beams
+          {"beamType":"|SUPPORT","beamLongBound":6},
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":25000,"beamStrength":125000},
+          {"beamPrecompression":0.95},
+          {"breakGroup":"spoiler_supportBeams"},
+          ["sp1r",  "t2r"],
+          ["sp1l",  "t2l"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"deformLimitExpansion":1.1},
+    ],
+        "hydros": [
+            ["id1:", "id2:"],
+            {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+            //stock-wing spring/damping (stable); all 20 original links restored as actuators
+            {"beamSpring":501000, "beamDamp":100},
+            {"beamDeform":"FLT_MAX", "beamStrength":"FLT_MAX"},
+            ["sp2r", "sp4r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.7400, "outLimit":1.2204, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "sp4l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.7400, "outLimit":1.2204, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9286, "outLimit":1.0523, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9286, "outLimit":1.0523, "inRate":0.9, "outRate":0.9}],
+            ["sp2rr", "sp4r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9541, "outLimit":1.0473, "inRate":0.9, "outRate":0.9}],
+            ["sp2ll", "sp4l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9541, "outLimit":1.0473, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp4l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9712, "outLimit":1.0311, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp4r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9712, "outLimit":1.0311, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9833, "outLimit":1.0141, "inRate":0.9, "outRate":0.9}],
+            ["sp2ll", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9814, "outLimit":1.0129, "inRate":0.9, "outRate":0.9}],
+            ["sp2rr", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9814, "outLimit":1.0129, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9833, "outLimit":1.0141, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9959, "outLimit":1.0032, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9959, "outLimit":1.0032, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "t3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9030, "outLimit":1.0816, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "t3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9030, "outLimit":1.0816, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "t1r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9411, "outLimit":1.0382, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "t1l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9411, "outLimit":1.0382, "inRate":0.9, "outRate":0.9}],
+            ["sp2rr", "t2r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9555, "outLimit":1.0444, "inRate":0.9, "outRate":0.9}],
+            ["sp2ll", "t2l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9555, "outLimit":1.0444, "inRate":0.9, "outRate":0.9}],
+    ],
+    "triangles": [
+            ["id1:",  "id2:",  "id3:"],
+            {"dragCoef":17},
+            {"groundModel":"plastic"},
+            ["sp2rr", "sp1rr", "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2rr", "sp1r",  "sp2r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1r",  "sp1",   "sp2r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp1",   "sp2",   {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1",   "sp1l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1",   "sp2l",  "sp2",   {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp1ll", "sp2ll", {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp2ll", "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp3l",  "sp4l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp4l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp4r",  "sp3r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            //side plates
+            ["sp2rr", "sp6rr", "sp5rr", {"liftCoef":30}],
+            ["sp2rr", "sp5rr", "sp1rr", {"liftCoef":30}],
+            ["sp1ll", "sp5ll", "sp2ll", {"liftCoef":30}],
+            ["sp5ll", "sp6ll", "sp2ll", {"liftCoef":30}],
+
+            {"dragCoef":5},
+            {"triangleType":"NONCOLLIDABLE"},
+            {"breakGroup":"spoiler_R"},
+            ["f9l",   "f7",    "f9r",   {"liftCoef":80, "stallAngle":0.35}],
+            {"breakGroup":""},
+            {"triangleType":"NORMALTYPE"},
+            {"group":""},
+
+
+    ],
+},
+"bolide_spoiler_b_velocita_awd_active": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Velocita Active Wing, Balanced Aero (AWD)",
+        "value":4600,
+    },
+    "slotType" : "bolide_spoiler_b",
+    "controller": [
+        ["fileName"],
+        ["velocitaActiveWing"],
+    ],
+
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_spoiler_b", ["bolide_spoiler"]],
+    ],
+
+    "nodes": [
+         ["id",    "posX", "posY", "posZ"],
+         //--SPOILER--
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.8},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"group":"bolide_spoiler"},
+         {"nodeWeight":0.9},
+         ["sp1rr",-0.84,   1.91,   0.95],
+         ["sp1r", -0.51,   1.9,    0.97],
+         ["sp1",   0.0,    1.87,   0.97],
+         ["sp1l",  0.51,   1.9,    0.97],
+         ["sp1ll", 0.84,   1.91,   0.95],
+         ["sp2rr",-0.84,   2.09,   1.02],
+         ["sp2r", -0.51,   2.09,   1.03],
+         ["sp2",   0.0,    2.08,   1.04],
+         ["sp2l",  0.51,   2.09,   1.03],
+         ["sp2ll", 0.84,   2.09,   1.02],
+         //struts
+         ["sp3r", -0.51,   1.88,   0.88],
+         ["sp3l",  0.51,   1.88,   0.88],
+         ["sp4r", -0.51,   2.04,   0.86],
+         ["sp4l",  0.51,   2.04,   0.86],
+         //side plates
+         ["sp5rr",-0.84,   1.91,   0.88],
+         ["sp5ll", 0.84,   1.91,   0.88],
+         ["sp6rr",-0.84,   2.09,   0.88],
+         ["sp6ll", 0.84,   2.09,   0.88],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:",  "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+          //main shape
+          {"beamSpring":501000,"beamDamp":100},
+          {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":1.1},
+          ["sp2rr", "sp1rr"],
+          ["sp2r",  "sp1r"],
+          ["sp2",   "sp1"],
+          ["sp2l",  "sp1l"],
+          ["sp2ll", "sp1ll"],
+
+          ["sp1rr", "sp1r"],
+          ["sp1r",  "sp1"],
+          ["sp1",   "sp1l"],
+          ["sp1l",  "sp1ll"],
+          ["sp2rr", "sp2r"],
+          ["sp2r",  "sp2"],
+          ["sp2",   "sp2l"],
+          ["sp2l",  "sp2ll"],
+
+          ["sp1r",  "sp3r"],
+          ["sp1l",  "sp3l"],
+          ["sp4r",  "sp3r"],
+          ["sp4l",  "sp3l"],
+
+          ["sp2rr", "sp6rr"],
+          ["sp6rr", "sp5rr"],
+          ["sp5rr", "sp1rr"],
+          ["sp2ll", "sp6ll"],
+          ["sp6ll", "sp5ll"],
+          ["sp5ll", "sp1ll"],
+
+          //surface cross
+          {"beamDeform":15000,"beamStrength":25000},
+          {"deformLimitExpansion":""},
+          ["sp2rr", "sp1r"],
+          ["sp1rr", "sp2r"],
+          ["sp1ll", "sp2l"],
+          ["sp2ll", "sp1l"],
+          ["sp2r",  "sp1"],
+          ["sp1r",  "sp2"],
+          ["sp1l",  "sp2"],
+          ["sp2l",  "sp1"],
+          ["sp4r",  "sp1r"],
+          ["sp4l",  "sp1l"],
+          //bracing
+          ["sp1rr", "sp3r"],
+          ["sp1ll", "sp3l"],
+          ["sp1",   "sp3l"],
+          ["sp4l",  "sp4r"],
+          ["sp3l",  "sp3r"],
+          ["sp1ll", "sp4l"],
+          ["sp4r",  "sp1rr"],
+          ["sp4l",  "sp1"],
+          ["sp1",   "sp4r"],
+
+          ["sp2rr", "sp5rr"],
+          ["sp1rr", "sp6rr"],
+          ["sp2ll", "sp5ll"],
+          ["sp1ll", "sp6ll"],
+
+          //rigids
+          {"beamSpring":201000,"beamDamp":100},
+          ["sp2rr", "sp2"],
+          ["sp2ll", "sp2"],
+          ["sp1rr", "sp1"],
+          ["sp1ll", "sp1"],
+          ["sp1r",  "sp1l"],
+          ["sp2r",  "sp2l"],
+
+          ["sp5rr", "sp1r"],
+          ["sp5rr", "sp2r"],
+          ["sp6rr", "sp2r"],
+          ["sp6rr", "sp1r"],
+          ["sp5ll", "sp1l"],
+          ["sp6ll", "sp2l"],
+          ["sp5ll", "sp2l"],
+          ["sp6ll", "sp1l"],
+
+          //attach
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":5000,"beamStrength":7000},
+          {"breakGroup":"spoiler_R"},
+          ["sp3r",  "t1r"],
+          ["sp4r",  "t2r"],
+          ["sp4r",  "t1r"],
+          ["sp3r",  "t2r"],
+          ["sp3r",  "t1rr"],
+          ["sp4r",  "t2rr"],
+          ["sp3r",  "t1"],
+          ["sp4r",  "t2"],
+          ["sp1r",  "t3r"],
+          ["sp1rr", "t3r"],
+          ["sp1r",  "t2r"],
+          ["sp1rr", "t2r"],
+          ["sp1rr", "t1r",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":"spoiler_L"},
+          ["sp3l",  "t1l"],
+          ["sp4l",  "t2l"],
+          ["sp3l",  "t2l"],
+          ["t1l",   "sp4l"],
+          ["sp4l",  "t2ll"],
+          ["sp3l",  "t1ll"],
+          ["sp3l",  "t1"],
+          ["sp4l",  "t2"],
+          ["sp1l",  "t3l"],
+          ["sp1ll", "t3l"],
+          ["sp1l",  "t2l"],
+          ["sp1ll", "t2l"],
+          ["sp1ll", "t1l",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":""},
+          //spoiler support beams
+          {"beamType":"|SUPPORT","beamLongBound":6},
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":25000,"beamStrength":125000},
+          {"beamPrecompression":0.95},
+          {"breakGroup":"spoiler_supportBeams"},
+          ["sp1r",  "t2r"],
+          ["sp1l",  "t2l"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"deformLimitExpansion":1.1},
+    ],
+        "hydros": [
+            ["id1:", "id2:"],
+            {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+            //stock-wing spring/damping (stable); all 20 original links restored as actuators
+            {"beamSpring":501000, "beamDamp":100},
+            {"beamDeform":"FLT_MAX", "beamStrength":"FLT_MAX"},
+            ["sp2r", "sp4r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.7400, "outLimit":1.2204, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "sp4l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.7400, "outLimit":1.2204, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9286, "outLimit":1.0523, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9286, "outLimit":1.0523, "inRate":0.9, "outRate":0.9}],
+            ["sp2rr", "sp4r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9541, "outLimit":1.0473, "inRate":0.9, "outRate":0.9}],
+            ["sp2ll", "sp4l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9541, "outLimit":1.0473, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp4l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9712, "outLimit":1.0311, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp4r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9712, "outLimit":1.0311, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9833, "outLimit":1.0141, "inRate":0.9, "outRate":0.9}],
+            ["sp2ll", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9814, "outLimit":1.0129, "inRate":0.9, "outRate":0.9}],
+            ["sp2rr", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9814, "outLimit":1.0129, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9833, "outLimit":1.0141, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9959, "outLimit":1.0032, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9959, "outLimit":1.0032, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "t3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9030, "outLimit":1.0816, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "t3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9030, "outLimit":1.0816, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "t1r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9411, "outLimit":1.0382, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "t1l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9411, "outLimit":1.0382, "inRate":0.9, "outRate":0.9}],
+            ["sp2rr", "t2r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9555, "outLimit":1.0444, "inRate":0.9, "outRate":0.9}],
+            ["sp2ll", "t2l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9555, "outLimit":1.0444, "inRate":0.9, "outRate":0.9}],
+    ],
+    "triangles": [
+            ["id1:",  "id2:",  "id3:"],
+            {"dragCoef":17},
+            {"groundModel":"plastic"},
+            ["sp2rr", "sp1rr", "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2rr", "sp1r",  "sp2r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1r",  "sp1",   "sp2r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp1",   "sp2",   {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1",   "sp1l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1",   "sp2l",  "sp2",   {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp1ll", "sp2ll", {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp2ll", "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp3l",  "sp4l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp1l",  "sp4l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp4r",  "sp3r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            //side plates
+            ["sp2rr", "sp6rr", "sp5rr", {"liftCoef":30}],
+            ["sp2rr", "sp5rr", "sp1rr", {"liftCoef":30}],
+            ["sp1ll", "sp5ll", "sp2ll", {"liftCoef":30}],
+            ["sp5ll", "sp6ll", "sp2ll", {"liftCoef":30}],
+
+            {"dragCoef":5},
+            {"triangleType":"NONCOLLIDABLE"},
+            {"breakGroup":"spoiler_R"},
+            ["f9l",   "f7",    "f9r",   {"liftCoef":175, "stallAngle":0.45}],
+            {"breakGroup":""},
+            {"triangleType":"NORMALTYPE"},
+            {"group":""},
+
+
+    ],
+},
+"bolide_exhaust_turbo_velocita":{
+    "information":{
+        "authors":"BeamNG",
+        "name":"Velocita Straight-Through Exhaust",
+        "value":800,
+    },
+
+    "slotType" : "bolide_exhaust_turbo",
+
+    "flexbodies":[
+        ["mesh", "[group]:","nonFlexMaterials"],
+        ["bolide_exhaust_b_L", ["bolide_exhaust"]],
+        ["bolide_exhaust_b_R", ["bolide_exhaust"]],
+        ["bolide_muffler", ["bolide_exhaust"]],
+        ["bolide_exhaust_b_pipes", ["bolide_exhaust"]],
+    ],
+    "mainEngine":{
+        "torqueModExhaust":[
+            ["rpm", "torque"],
+            [0, 0],
+            [1000, -0],
+            [2000, -2],
+            [3000, -5],
+            [4000, -8],
+            [5000, -11],
+            [6000, -13],
+            [7000, -16],
+            [8000, -20],
+            [9000, -23],
+        ],
+    },
+    "soundConfigExhaust": {
+        "$+lowShelfGain":9,
+        "$+highShelfGain":3,
+        "$+eqFundamentalGain":3,
+    },
+    "nodes":[
+         ["id",    "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"nodeWeight":1.4},
+         {"group":"bolide_exhaust"},
+         ["ex5",   0.0,    1.46,   0.51],
+
+         ["ex1r", -0.336,  0.9,    0.67],
+         ["ex1",   0.0,    1.604,  0.591],
+         ["ex1l",  0.336,  0.9,    0.67],
+
+         ["ex2r", -0.387,  1.578,  0.604],
+         ["ex2",   0.0,    1.604,  0.47],
+         ["ex2l",  0.387,  1.578,  0.604],
+
+         ["ex3rr",-0.546,  1.663,  0.268],
+         ["ex3r", -0.47,   1.663,  0.268],
+         ["ex3l",  0.47,   1.663,  0.268],
+         ["ex3ll", 0.546,  1.663,  0.268],
+
+         ["ex4rr",-0.546,  1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":0.9, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
+         ["ex4r", -0.47,   1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":0.9, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
+         ["ex4l",  0.47,   1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":0.9, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
+         ["ex4ll", 0.546,  1.966,  0.306,  {"afterFireAudioCoef":0.95, "afterFireVisualCoef":0.9, "afterFireVolumeCoef":1.0, "afterFireMufflingCoef":0.88, "exhaustAudioMufflingCoef":0.88, "exhaustAudioGainChange":-1.5}],
+         {"group":"none"},
+        ],
+    "beams":[
+          ["id1:",  "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+
+          //right
+          //path
+          {"beamSpring":1110000,"beamDamp":185},
+          {"beamDeform":33000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":1.2},
+          ["ex1l",  "ex5",    {"isExhaust":"mainEngine"}],
+          ["ex1r",  "ex5",    {"isExhaust":"mainEngine"}],
+          ["ex5",   "ex2",    {"isExhaust":"mainEngine"}],
+          ["ex2",   "ex2r",   {"isExhaust":"mainEngine"}],
+          ["ex2",   "ex2l",   {"isExhaust":"mainEngine"}],
+          ["ex2r",  "ex3r",   {"isExhaust":"mainEngine"}],
+          ["ex2r",  "ex3rr",  {"isExhaust":"mainEngine"}],
+          ["ex3rr", "ex4rr",  {"isExhaust":"mainEngine"}],
+          ["ex3r",  "ex4r",   {"isExhaust":"mainEngine"}],
+          ["ex2l",  "ex3l",   {"isExhaust":"mainEngine"}],
+          ["ex2l",  "ex3ll",  {"isExhaust":"mainEngine"}],
+          ["ex3l",  "ex4l",   {"isExhaust":"mainEngine"}],
+          ["ex3ll", "ex4ll",  {"isExhaust":"mainEngine"}],
+
+          //rigidifier
+          {"deformLimitExpansion":""},
+          {"beamSpring":900000,"beamDamp":185},
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          ["ex1",   "ex2"],
+          ["ex1",   "ex2r"],
+          ["ex1",   "ex2l"],
+          ["ex4l",  "ex4ll"],
+          ["ex3l",  "ex3ll"],
+          ["ex4l",  "ex3ll"],
+          ["ex3l",  "ex4ll"],
+          ["ex3r",  "ex3rr"],
+          ["ex4rr", "ex3r"],
+          ["ex3rr", "ex4r"],
+          ["ex4r",  "ex4rr"],
+          ["ex4rr", "ex2r"],
+          ["ex2r",  "ex4r"],
+          ["ex4l",  "ex2l"],
+          ["ex2l",  "ex4ll"],
+          ["ex4l",  "ex2"],
+          ["ex2",   "ex4r"],
+          ["ex4rr", "ex2"],
+          ["ex2",   "ex4ll"],
+          ["ex4ll", "ex1"],
+          ["ex1",   "ex4rr"],
+          ["ex4r",  "ex1"],
+          ["ex1",   "ex4l"],
+          ["ex3l",  "ex2"],
+          ["ex2",   "ex3r"],
+          ["ex3rr", "ex2"],
+          ["ex2",   "ex3ll"],
+          ["ex4r",  "ex2l"],
+          ["ex4l",  "ex2r"],
+          ["ex4r",  "ex3l"],
+          ["ex4l",  "ex3r"],
+          ["ex5",   "ex1"],
+          ["ex5",   "ex2r"],
+          ["ex5",   "ex2l"],
+          ["ex1l",  "ex1r"],
+          ["ex1r",  "ex2"],
+          ["ex1l",  "ex2"],
+          ["ex1l",  "ex1"],
+          ["ex1r",  "ex1"],
+          ["ex1r",  "ex2r"],
+          ["ex1l",  "ex2l"],
+
+          //attach
+          {"beamSpring":1000000,"beamDamp":150},
+          {"beamDeform":7500,"beamStrength":65000},
+          {"breakGroup":"exhaust_MR"},
+          ["ex1r",  "trb2r",  {"isExhaust":"mainEngine"}],
+          ["ex1r",  "e2r"],
+          ["ex1r",  "e4r"],
+          ["ex1r",  "e1r"],
+          ["ex1r",  "e2l"],
+          ["ex1r",  "e4l"],
+          {"breakGroup":"exhaust_ML"},
+          ["ex1l",  "trb2l",  {"isExhaust":"mainEngine"}],
+          ["ex1l",  "e2l"],
+          ["ex1l",  "e4l"],
+          ["ex1l",  "e1l"],
+          ["ex1l",  "e2r"],
+          ["ex1l",  "e4r"],
+          {"beamSpring":215000,"beamDamp":200},
+          {"beamDeform":4000,"beamStrength":15000},
+          {"breakGroup":"exhaust_R"},
+          ["ex2r",  "rx4r"],
+          ["ex2r",  "rx6r"],
+          ["ex2r",  "rx6"],
+          ["ex3r",  "rx2r"],
+          ["ex3r",  "rx4r"],
+          ["ex3r",  "rx2"],
+          {"breakGroup":"exhaust_L"},
+          ["ex2l",  "rx4l"],
+          ["ex2l",  "rx6l"],
+          ["ex2l",  "rx6"],
+          ["ex3l",  "rx2l"],
+          ["ex3l",  "rx4l"],
+          ["ex3l",  "rx2"],
+          {"breakGroup":""},
+
+          //limiters
+          {"beamPrecompression":0.9, "beamType":"|SUPPORT", "beamLongBound":8},
+          {"beamSpring":450000,"beamDamp":150},
+          {"beamDeform":9000,"beamStrength":65000},
+          {"breakGroup":"exhaust_supportBeams"},
+          //to subframe
+          ["ex2r",  "rx5r"],
+          ["ex2l",  "rx5l"],
+          ["ex2l",  "rx4l"],
+          ["ex2r",  "rx4r"],
+          ["ex4r",  "rx2r"],
+          ["ex4l",  "rx2l"],
+          //to tailcone support
+          {"optional":true},
+          ["ex2r",  "tcs4r"],
+          ["ex2r",  "tcs3rr"],
+          ["ex2l",  "tcs4l"],
+          ["ex2l",  "tcs3ll"],
+          ["ex2l",  "tcs5l"],
+          ["ex2r",  "tcs5r"],
+          ["ex4ll", "tcs1ll"],
+          ["ex4l",  "tcs1l"],
+          ["ex4r",  "tcs1r"],
+          ["ex4rr", "tcs1rr"],
+          //to tailcone
+          ["ex4l",  "t3l"],
+          ["ex4ll", "t3l"],
+          ["ex4r",  "t3r"],
+          ["ex4rr", "t3r"],
+          ["ex4ll", "t4ll"],
+          ["ex4rr", "t4rr"],
+          ["ex4r",  "t4"],
+          ["ex4l",  "t4"],
+          {"optional":false},
+          {"breakGroup":""},
+    ],
+
+    "triangles":[
+        ["id1:",  "id2:",  "id3:"],
+        {"groundModel":"metal"},
+        {"dragCoef":3},
+        {"triangleType":"NONCOLLIDABLE"},
+        //exhaust
+        {"group":"bolide_exhaust"},
+        ["ex5",   "ex1r",  "ex1l"],
+        ["ex5",   "ex1",   "ex2r"],
+        ["ex5",   "ex2l",  "ex1"],
+        ["ex2l",  "ex2",   "ex1"],
+        ["ex1",   "ex2",   "ex2r"],
+        ["ex2r",  "ex3r",  "ex3rr"],
+        ["ex2l",  "ex3ll", "ex3l"],
+        ["ex2l",  "ex3l",  "ex2"],
+        ["ex2",   "ex3r",  "ex2r"],
+        ["ex3r",  "ex4rr", "ex3rr"],
+        ["ex3r",  "ex4r",  "ex4rr"],
+        ["ex3ll", "ex4l",  "ex3l"],
+        ["ex3ll", "ex4ll", "ex4l"],
+        {"triangleType":"NORMALTYPE"},
+        ],
+},
+}

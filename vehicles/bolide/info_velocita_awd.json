@@ -1,0 +1,17 @@
+{
+  "Configuration": "Velocita AWD",
+  "Description": "All-wheel-drive Velocita: ~1100 hp quick-spool twin-turbo V8 (30 psi), 7-speed dual-clutch, 335 hp nitrous shot, rear-biased (62%) limited-slip center diff for much harder launches and corner exits. TCS, ESC, ABS, launch control and speed-sensitive steering included.",
+  "Config Type": "Custom",
+  "Drivetrain": "AWD",
+  "Fuel Type": "Gasoline",
+  "Induction Type": "Turbo",
+  "Propulsion": "ICE",
+  "Transmission": "Dual-Clutch",
+  "Value": 560000,
+  "defaultMultiPaintSetup": {
+    "name": "Velocita AWD Electric",
+    "paint1": "Blu Vibrante",
+    "paint2": "Nero Opaco",
+    "paint3": "Nero Opaco"
+  }
+}
