@@ -1,6 +1,6 @@
 {
   "Configuration": "Velocita Track",
-  "Description": "Circuit Velocita: AWD with close-ratio gearing, slightly front-biased power split, softer front bar for turn-in and a smaller nitrous shot. Built for lap times; tops out around 230 mph.",
+  "Description": "Circuit Velocita: AWD with track electronics (less intrusive TCS/ESC, stronger torque vectoring), max-downforce active wing with rebalanced front aero, firm lowered race suspension with negative camber and a rear anti-roll bar, close-ratio gearing and quicker steering at speed. Built for lap times; tops out around 230 mph.",
   "Config Type": "Custom",
   "Drivetrain": "AWD",
   "Fuel Type": "Gasoline",

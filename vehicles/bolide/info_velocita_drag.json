@@ -1,6 +1,6 @@
 {
   "Configuration": "Velocita Drag",
-  "Description": "Drag-strip Velocita: AWD with short, tightly stacked gears, nitrous from 1st gear, launch-biased center diff and low rear tire pressure. Brutal 0-200 mph; tops out around 225 mph.",
+  "Description": "Drag-strip Velocita: AWD with 40 psi boost, 500 kW nitrous usable from 1st gear above 5000 rpm, 7500 rpm launch control, acceleration-tuned traction control, wing locked flat, short stacked gears, locked-up diffs and low rear tire pressure. Built for 0-60, quarter-mile and 0-200 runs; tops out around 225 mph.",
   "Config Type": "Custom",
   "Drivetrain": "AWD",
   "Fuel Type": "Gasoline",

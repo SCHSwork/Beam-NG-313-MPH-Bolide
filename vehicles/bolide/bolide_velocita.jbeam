@@ -499,8 +499,8 @@
             "headGasketDamageThreshold": 2500000,
             "pistonRingDamageThreshold": 2500000,
             "connectingRodDamageThreshold": 3200000,
-            "$*maxTorqueRating": 4.5,
-            "$*maxOverTorqueDamage": 4.0
+            "$*maxTorqueRating": 5.2,
+            "$*maxOverTorqueDamage": 4.6
         }
     },
     "bolide_mod_velocita_dse": {
@@ -3590,6 +3590,1143 @@
           ["n2o",  "f2l"],
           ["n2o",  "f1l"],
           {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+},
+    "bolide_mod_velocita_dse_track": {
+        "information": {
+            "authors": "Lincoln",
+            "name": "Velocita Track Electronics (TCS + ESC + Torque Vectoring)",
+            "value": 4500
+        },
+        "slotType": "bolide_mod",
+        "controller": [
+            [
+                "fileName"
+            ],
+            [
+                "drivingDynamics/CMU",
+                {
+                    "name": "CMU",
+                    "debugSettings": {
+                        "peerIP": "127.0.0.1"
+                    }
+                }
+            ],
+            [
+                "drivingDynamics/sensors/sensorHub"
+            ],
+            [
+                "drivingDynamics/sensors/virtualSensors",
+                {
+                    "name": "sensors"
+                }
+            ],
+            [
+                "drivingDynamics/sensors/vehicleData",
+                {
+                    "name": "vehicleData"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/components/motorTorqueControl",
+                {
+                    "name": "motorTorqueControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/components/brakeControl",
+                {
+                    "name": "brakeControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/tractionControl",
+                {
+                    "name": "tractionControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/slipProviders/virtualSpeedSlip"
+            ],
+            [
+                "drivingDynamics/supervisors/yawControl",
+                {
+                    "name": "yawControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/yawProviders/STMEstimate"
+            ],
+            [
+                "adaptiveBrakeLights"
+            ],
+            [
+                "driveModes"
+            ],
+            [
+                "drivingDynamics/actuators/activeDiffBias",
+                {
+                    "name": "activeBiasRear",
+                    "differentialName": "differential_R",
+                    "avDiffThreshold": 12
+                }
+            ],
+            [
+                "velocitaStraightLine"
+            ]
+        ],
+        "vehicleData": {
+            "skewStiffnessFront": 125000,
+            "skewStiffnessRear": 215000
+        },
+        "tractionControl": {
+            "tractionControlledMotors": [
+                "mainEngine"
+            ]
+        },
+        "motorTorqueControl": {
+            "useForTractionControl": true,
+            "tractionControl": {
+                "wheelGroupSettings": [
+                    [
+                        "motorName",
+                        "slipThreshold",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "mainEngine",
+                        0.15,
+                        2.0,
+                        1.2,
+                        0.1,
+                        20,
+                        6
+                    ]
+                ]
+            },
+            "useForYawControl": true,
+            "yawControl": {
+                "yawControlledMotors": [
+                    "mainEngine"
+                ],
+                "PIDSettings": [
+                    [
+                        "type",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "yawAV",
+                        1.5,
+                        0.9,
+                        0.0,
+                        50,
+                        20
+                    ],
+                    [
+                        "slipAngle",
+                        2.0,
+                        1.0,
+                        0.0,
+                        10,
+                        1
+                    ]
+                ],
+                "yawAVThreshold": 0.4,
+                "slipAngleThreshold": 0.075
+            }
+        },
+        "brakeControl": {
+            "useForTractionControl": true,
+            "tractionControl": {
+                "wheelGroupSettings": [
+                    [
+                        "motorName",
+                        "slipThreshold",
+                        "slipRangeThreshold",
+                        "maxVelocity",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "mainEngine",
+                        0.1,
+                        0.2,
+                        10,
+                        1,
+                        1.5,
+                        0,
+                        20,
+                        2
+                    ]
+                ]
+            },
+            "yawControl": {
+                "PIDSettings": [
+                    [
+                        "type",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "yawAV",
+                        3.0,
+                        0.8,
+                        0.0,
+                        100,
+                        10
+                    ],
+                    [
+                        "slipAngle",
+                        2.0,
+                        1.0,
+                        0.0,
+                        10,
+                        1
+                    ]
+                ],
+                "yawAVThreshold": 0.35,
+                "slipAngleThreshold": 0.075
+            }
+        },
+        "driveModes": {
+            "enabledModes": [
+                "safe",
+                "sport",
+                "off"
+            ],
+            "defaultMode": "safe",
+            "defaultSettings": [
+                [
+                    "type"
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "tractionControl",
+                        "isEnabled": true
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "yawControl",
+                        "isEnabled": true
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "motorTorqueControl",
+                        "isEnabled": true,
+                        "tractionControl": "default",
+                        "yawControl": "default"
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "brakeControl",
+                        "isEnabled": true,
+                        "yawControl": "default"
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "twoStepLaunch",
+                        "isEnabled": true,
+                        "launchRPM": 6500
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "activeBiasRear",
+                        "isEnabled": true,
+                        "maxBiasOffset": 0.25
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "velocitaActiveWing",
+                        "forceLowDrag": false
+                    }
+                ]
+            ],
+            "modes": {
+                "safe": {
+                    "name": "Track",
+                    "order": 10,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "238BE6",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "sport": {
+                    "name": "Track Sport (more slide)",
+                    "order": 20,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": true,
+                                "maxBiasOffset": 0.32
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.22,
+                                "yawControl.slipAngleThreshold": 0.09
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "brakeControl",
+                                "yawControl.slipAngleThreshold": 0.12,
+                                "yawControl.yawAvThreshold": 0.5
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "DA0C0C",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "off": {
+                    "name": "TCS & ESC Off",
+                    "order": 50,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": false,
+                                "maxBiasOffset": 0.0
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "tractionControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "yawControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "brakeControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "999999",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                }
+            }
+        }
+    },
+    "bolide_mod_velocita_dse_drag": {
+        "information": {
+            "authors": "Lincoln",
+            "name": "Velocita Drag Electronics (Launch + TCS)",
+            "value": 4500
+        },
+        "slotType": "bolide_mod",
+        "controller": [
+            [
+                "fileName"
+            ],
+            [
+                "drivingDynamics/CMU",
+                {
+                    "name": "CMU",
+                    "debugSettings": {
+                        "peerIP": "127.0.0.1"
+                    }
+                }
+            ],
+            [
+                "drivingDynamics/sensors/sensorHub"
+            ],
+            [
+                "drivingDynamics/sensors/virtualSensors",
+                {
+                    "name": "sensors"
+                }
+            ],
+            [
+                "drivingDynamics/sensors/vehicleData",
+                {
+                    "name": "vehicleData"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/components/motorTorqueControl",
+                {
+                    "name": "motorTorqueControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/components/brakeControl",
+                {
+                    "name": "brakeControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/tractionControl",
+                {
+                    "name": "tractionControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/slipProviders/virtualSpeedSlip"
+            ],
+            [
+                "drivingDynamics/supervisors/yawControl",
+                {
+                    "name": "yawControl"
+                }
+            ],
+            [
+                "drivingDynamics/supervisors/yawProviders/STMEstimate"
+            ],
+            [
+                "adaptiveBrakeLights"
+            ],
+            [
+                "driveModes"
+            ],
+            [
+                "drivingDynamics/actuators/activeDiffBias",
+                {
+                    "name": "activeBiasRear",
+                    "differentialName": "differential_R",
+                    "avDiffThreshold": 12
+                }
+            ],
+            [
+                "velocitaStraightLine"
+            ]
+        ],
+        "vehicleData": {
+            "skewStiffnessFront": 125000,
+            "skewStiffnessRear": 215000
+        },
+        "tractionControl": {
+            "tractionControlledMotors": [
+                "mainEngine"
+            ]
+        },
+        "motorTorqueControl": {
+            "useForTractionControl": true,
+            "tractionControl": {
+                "wheelGroupSettings": [
+                    [
+                        "motorName",
+                        "slipThreshold",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "mainEngine",
+                        0.11,
+                        2.4,
+                        3.0,
+                        0.1,
+                        20,
+                        6
+                    ]
+                ]
+            },
+            "useForYawControl": true,
+            "yawControl": {
+                "yawControlledMotors": [
+                    "mainEngine"
+                ],
+                "PIDSettings": [
+                    [
+                        "type",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "yawAV",
+                        1.5,
+                        0.9,
+                        0.0,
+                        50,
+                        20
+                    ],
+                    [
+                        "slipAngle",
+                        2.0,
+                        1.0,
+                        0.0,
+                        10,
+                        1
+                    ]
+                ],
+                "yawAVThreshold": 0.3,
+                "slipAngleThreshold": 0.05
+            }
+        },
+        "brakeControl": {
+            "useForTractionControl": true,
+            "tractionControl": {
+                "wheelGroupSettings": [
+                    [
+                        "motorName",
+                        "slipThreshold",
+                        "slipRangeThreshold",
+                        "maxVelocity",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "mainEngine",
+                        0.1,
+                        0.2,
+                        10,
+                        1,
+                        1.5,
+                        0,
+                        20,
+                        2
+                    ]
+                ]
+            },
+            "yawControl": {
+                "PIDSettings": [
+                    [
+                        "type",
+                        "kP",
+                        "kI",
+                        "kD",
+                        "integralInCoef",
+                        "integralOutCoef"
+                    ],
+                    [
+                        "yawAV",
+                        3.0,
+                        0.8,
+                        0.0,
+                        100,
+                        10
+                    ],
+                    [
+                        "slipAngle",
+                        2.0,
+                        1.0,
+                        0.0,
+                        10,
+                        1
+                    ]
+                ],
+                "yawAVThreshold": 0.22,
+                "slipAngleThreshold": 0.045
+            }
+        },
+        "driveModes": {
+            "enabledModes": [
+                "safe",
+                "sport",
+                "off"
+            ],
+            "defaultMode": "safe",
+            "defaultSettings": [
+                [
+                    "type"
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "tractionControl",
+                        "isEnabled": true
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "yawControl",
+                        "isEnabled": true
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "motorTorqueControl",
+                        "isEnabled": true,
+                        "tractionControl": "default",
+                        "yawControl": "default"
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "brakeControl",
+                        "isEnabled": true,
+                        "yawControl": "default"
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "twoStepLaunch",
+                        "isEnabled": true,
+                        "launchRPM": 7500
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "activeBiasRear",
+                        "isEnabled": false,
+                        "maxBiasOffset": 0.15
+                    }
+                ],
+                [
+                    "controller",
+                    {
+                        "controllerName": "velocitaActiveWing",
+                        "forceLowDrag": true
+                    }
+                ]
+            ],
+            "modes": {
+                "safe": {
+                    "name": "Drag",
+                    "order": 10,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "238BE6",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "sport": {
+                    "name": "Drag (more wheelspin)",
+                    "order": 20,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": true,
+                                "maxBiasOffset": 0.2
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "tractionControl.wheelGroupSettings.mainEngine.slipThreshold": 0.22,
+                                "yawControl.slipAngleThreshold": 0.09
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "brakeControl",
+                                "yawControl.slipAngleThreshold": 0.12,
+                                "yawControl.yawAvThreshold": 0.5
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "DA0C0C",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                },
+                "off": {
+                    "name": "TCS & ESC Off",
+                    "order": 50,
+                    "settings": [
+                        [
+                            "type"
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "activeBiasRear",
+                                "isEnabled": false,
+                                "maxBiasOffset": 0.0
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "tractionControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "yawControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "motorTorqueControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "controller",
+                            {
+                                "controllerName": "brakeControl",
+                                "isEnabled": false
+                            }
+                        ],
+                        [
+                            "simpleControlButton",
+                            {
+                                "buttonId": "dse",
+                                "uiName": "TCS / ESC",
+                                "icon": "powertrain_esc",
+                                "color": "999999",
+                                "offColor": "343434"
+                            }
+                        ]
+                    ]
+                }
+            }
+        }
+    },
+"bolide_steering_velocita_track": {
+    "information":{
+        "authors":"BeamNG, Lincoln",
+        "name":"Velocita Speed-Sensitive Steering (Track tune)",
+        "value":600,
+    },
+    "slotType" : "bolide_steering",
+    "controller": [
+        ["fileName"],
+        ["velocitaSteering", {"speedSensitivity":0.4}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_steeringshaft", ["bolide_chassis"]],
+         ["bolide_tierod", ["bolide_rack_F","bolide_tierod_F"]],
+         ["bolide_steeringrack", ["bolide_rack_F","bolide_subframe_F"]],
+    ],
+    "rails": {
+        "steeringrack":{
+            "links:":["fh6r", "fh6l"], "broken:":[], "looped":false, "capped":true,
+        },
+    },
+    "slidenodes": [
+        ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+        ["fx5r", "steeringrack", true, true, 0.0, 20001000, "FLT_MAX", "FLT_MAX"],
+        ["fx5l", "steeringrack", true, true, 0.0, 20001000, "FLT_MAX", "FLT_MAX"],
+    ],
+    "nodes": [
+         ["id",   "posX", "posY", "posZ"],
+         {"selfCollision":false},
+         {"collision":true},
+         {"nodeMaterial":"|NM_METAL"},
+         {"frictionCoef":0.5},
+         //rack ends
+         {"group":"bolide_tierod_F"},
+         {"nodeWeight":4.5},
+         ["fh6r",-0.404, -1.12,   0.335],
+         ["fh6l", 0.404, -1.12,   0.335],
+         //rack
+         {"group":"bolide_rack_F"},
+         {"nodeWeight":6.5},
+         ["fx5r",-0.30,  -1.12,   0.335],
+         ["fx5l", 0.30,  -1.12,   0.335],
+         {"group":""},
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$toe_F", "range", "", "Wheel Alignment", 0.995, 0.97, 1.02, "Toe Adjust", "Adjusts the wheel toe-in angle", {"subCategory":"Front"}],
+        ["$steer_center_F", "range", "", "Wheel Alignment", 0, -0.002, 0.002, "Toe Left/Right Trim", "Fine tunes the centerpoint of the steering", {"subCategory":"Front"}]
+    ],
+    "beams": [
+            ["id1:", "id2:"],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+            //rack
+            {"beamSpring":8001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            ["fh6r", "fh6l", {"vkTag":"steer_rack_F"}],
+            {"beamSpring":5001000,"beamDamp":250},
+            {"beamDeform":22400,"beamStrength":"FLT_MAX"},
+            ["fx5l", "fx5r"],
+
+            ["fx5l", "fx2l"],
+            ["fx5r", "fx2r"],
+            ["fx5l", "fx2r"],
+            ["fx5r", "fx2l"],
+
+            ["fx5l", "fx4l"],
+            ["fx5r", "fx4r"],
+            ["fx5l", "fx4r"],
+            ["fx5r", "fx4l"],
+
+            ["fx5l", "fx1l"],
+            ["fx5r", "fx1r"],
+            ["fx5l", "fx1r"],
+            ["fx5r", "fx1l"],
+
+            //tie rods
+            {"beamSpring":18001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            ["fh3r", "fh6r", {"vkTag":"steer_link_FR", "beamPrecompression":"$=$toe_F-$steer_center_F","beamPrecompressionTime":0.5}],
+            ["fh3l", "fh6l", {"vkTag":"steer_link_FL", "beamPrecompression":"$=$toe_F+$steer_center_F","beamPrecompressionTime":0.5}],
+            {"deformLimitExpansion":""},
+            //steering dampener
+            {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":1.0, "beamShortBound":1.0},
+            {"beamLimitSpring":0,"beamLimitDamp":0},
+            {"beamSpring":0},
+            {"beamDamp":25},
+            ["fh3r", "fx3r", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            ["fh3l", "fx3l", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            ["fh3r", "fx4r", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            ["fh3l", "fx4l", {"beamDampVelocitySplit":0.15,"beamDampFast":250,"dampCutoffHz":750}],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+            {"deformLimitExpansion":1.2},
+    ],
+    "hydros": [
+            ["id1:","id2:"],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+            {"beamSpring":10001000,"beamDamp":25,"beamDeform":"FLT_MAX","beamStrength":275000},
+            ["fh6r","fx5l", {"factor":-0.122,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            ["fh6l","fx5r", {"factor":0.122,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            //reference hydro on the normal steering input (keeps steering wheel animation + UI working); very weak so it adds no force
+            {"beamSpring":1000,"beamDamp":5,"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+            ["f2r","f2l", {"factor":0.0001,"steeringWheelLock":550, "inRate":1.25,"outRate":1.25}],
+            {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "input": {
+        "FFBcoef":"$=$ffbstrength*14",
+    },
+},
+"bolide_spoiler_b_velocita_track_active": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Velocita Active Wing, Max Downforce (Track)",
+        "value":4600,
+    },
+    "slotType" : "bolide_spoiler_b",
+    "controller": [
+        ["fileName"],
+        ["velocitaActiveWing"],
+    ],
+
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_spoiler_b", ["bolide_spoiler"]],
+    ],
+
+    "nodes": [
+         ["id",    "posX", "posY", "posZ"],
+         //--SPOILER--
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.8},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"group":"bolide_spoiler"},
+         {"nodeWeight":0.9},
+         ["sp1rr",-0.84,   1.91,   0.95],
+         ["sp1r", -0.51,   1.9,    0.97],
+         ["sp1",   0.0,    1.87,   0.97],
+         ["sp1l",  0.51,   1.9,    0.97],
+         ["sp1ll", 0.84,   1.91,   0.95],
+         ["sp2rr",-0.84,   2.09,   1.02],
+         ["sp2r", -0.51,   2.09,   1.03],
+         ["sp2",   0.0,    2.08,   1.04],
+         ["sp2l",  0.51,   2.09,   1.03],
+         ["sp2ll", 0.84,   2.09,   1.02],
+         //struts
+         ["sp3r", -0.51,   1.88,   0.88],
+         ["sp3l",  0.51,   1.88,   0.88],
+         ["sp4r", -0.51,   2.04,   0.86],
+         ["sp4l",  0.51,   2.04,   0.86],
+         //side plates
+         ["sp5rr",-0.84,   1.91,   0.88],
+         ["sp5ll", 0.84,   1.91,   0.88],
+         ["sp6rr",-0.84,   2.09,   0.88],
+         ["sp6ll", 0.84,   2.09,   0.88],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:",  "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+          //main shape
+          {"beamSpring":501000,"beamDamp":100},
+          {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":1.1},
+          ["sp2rr", "sp1rr"],
+          ["sp2r",  "sp1r"],
+          ["sp2",   "sp1"],
+          ["sp2l",  "sp1l"],
+          ["sp2ll", "sp1ll"],
+
+          ["sp1rr", "sp1r"],
+          ["sp1r",  "sp1"],
+          ["sp1",   "sp1l"],
+          ["sp1l",  "sp1ll"],
+          ["sp2rr", "sp2r"],
+          ["sp2r",  "sp2"],
+          ["sp2",   "sp2l"],
+          ["sp2l",  "sp2ll"],
+
+          ["sp1r",  "sp3r"],
+          ["sp1l",  "sp3l"],
+          ["sp4r",  "sp3r"],
+          ["sp4l",  "sp3l"],
+
+          ["sp2rr", "sp6rr"],
+          ["sp6rr", "sp5rr"],
+          ["sp5rr", "sp1rr"],
+          ["sp2ll", "sp6ll"],
+          ["sp6ll", "sp5ll"],
+          ["sp5ll", "sp1ll"],
+
+          //surface cross
+          {"beamDeform":15000,"beamStrength":25000},
+          {"deformLimitExpansion":""},
+          ["sp2rr", "sp1r"],
+          ["sp1rr", "sp2r"],
+          ["sp1ll", "sp2l"],
+          ["sp2ll", "sp1l"],
+          ["sp2r",  "sp1"],
+          ["sp1r",  "sp2"],
+          ["sp1l",  "sp2"],
+          ["sp2l",  "sp1"],
+          ["sp4r",  "sp1r"],
+          ["sp4l",  "sp1l"],
+          //bracing
+          ["sp1rr", "sp3r"],
+          ["sp1ll", "sp3l"],
+          ["sp1",   "sp3l"],
+          ["sp4l",  "sp4r"],
+          ["sp3l",  "sp3r"],
+          ["sp1ll", "sp4l"],
+          ["sp4r",  "sp1rr"],
+          ["sp4l",  "sp1"],
+          ["sp1",   "sp4r"],
+
+          ["sp2rr", "sp5rr"],
+          ["sp1rr", "sp6rr"],
+          ["sp2ll", "sp5ll"],
+          ["sp1ll", "sp6ll"],
+
+          //rigids
+          {"beamSpring":201000,"beamDamp":100},
+          ["sp2rr", "sp2"],
+          ["sp2ll", "sp2"],
+          ["sp1rr", "sp1"],
+          ["sp1ll", "sp1"],
+          ["sp1r",  "sp1l"],
+          ["sp2r",  "sp2l"],
+
+          ["sp5rr", "sp1r"],
+          ["sp5rr", "sp2r"],
+          ["sp6rr", "sp2r"],
+          ["sp6rr", "sp1r"],
+          ["sp5ll", "sp1l"],
+          ["sp6ll", "sp2l"],
+          ["sp5ll", "sp2l"],
+          ["sp6ll", "sp1l"],
+
+          //attach
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":5000,"beamStrength":7000},
+          {"breakGroup":"spoiler_R"},
+          ["sp3r",  "t1r"],
+          ["sp4r",  "t2r"],
+          ["sp4r",  "t1r"],
+          ["sp3r",  "t2r"],
+          ["sp3r",  "t1rr"],
+          ["sp4r",  "t2rr"],
+          ["sp3r",  "t1"],
+          ["sp4r",  "t2"],
+          ["sp1r",  "t3r"],
+          ["sp1rr", "t3r"],
+          ["sp1r",  "t2r"],
+          ["sp1rr", "t2r"],
+          ["sp1rr", "t1r",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":"spoiler_L"},
+          ["sp3l",  "t1l"],
+          ["sp4l",  "t2l"],
+          ["sp3l",  "t2l"],
+          ["t1l",   "sp4l"],
+          ["sp4l",  "t2ll"],
+          ["sp3l",  "t1ll"],
+          ["sp3l",  "t1"],
+          ["sp4l",  "t2"],
+          ["sp1l",  "t3l"],
+          ["sp1ll", "t3l"],
+          ["sp1l",  "t2l"],
+          ["sp1ll", "t2l"],
+          ["sp1ll", "t1l",   {"beamSpring":0,"beamDamp":150}],
+
+          {"breakGroup":""},
+          //spoiler support beams
+          {"beamType":"|SUPPORT","beamLongBound":6},
+          {"beamSpring":501000,"beamDamp":150},
+          {"beamDeform":25000,"beamStrength":125000},
+          {"beamPrecompression":0.95},
+          {"breakGroup":"spoiler_supportBeams"},
+          ["sp1r",  "t2r"],
+          ["sp1l",  "t2l"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"deformLimitExpansion":1.1},
+    ],
+        "hydros": [
+            ["id1:", "id2:"],
+            {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+            //stock-wing spring/damping (stable); all 20 original links restored as actuators
+            {"beamSpring":501000, "beamDamp":100},
+            {"beamDeform":"FLT_MAX", "beamStrength":"FLT_MAX"},
+            ["sp2r", "sp4r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.7400, "outLimit":1.2204, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "sp4l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.7400, "outLimit":1.2204, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9286, "outLimit":1.0523, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9286, "outLimit":1.0523, "inRate":0.9, "outRate":0.9}],
+            ["sp2rr", "sp4r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9541, "outLimit":1.0473, "inRate":0.9, "outRate":0.9}],
+            ["sp2ll", "sp4l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9541, "outLimit":1.0473, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp4l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9712, "outLimit":1.0311, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp4r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9712, "outLimit":1.0311, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9833, "outLimit":1.0141, "inRate":0.9, "outRate":0.9}],
+            ["sp2ll", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9814, "outLimit":1.0129, "inRate":0.9, "outRate":0.9}],
+            ["sp2rr", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9814, "outLimit":1.0129, "inRate":0.9, "outRate":0.9}],
+            ["sp2", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9833, "outLimit":1.0141, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "sp3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9959, "outLimit":1.0032, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "sp3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9959, "outLimit":1.0032, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "t3r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9030, "outLimit":1.0816, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "t3l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9030, "outLimit":1.0816, "inRate":0.9, "outRate":0.9}],
+            ["sp2r", "t1r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9411, "outLimit":1.0382, "inRate":0.9, "outRate":0.9}],
+            ["sp2l", "t1l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9411, "outLimit":1.0382, "inRate":0.9, "outRate":0.9}],
+            ["sp2rr", "t2r", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9555, "outLimit":1.0444, "inRate":0.9, "outRate":0.9}],
+            ["sp2ll", "t2l", {"inputSource":"velocita_wing", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.9555, "outLimit":1.0444, "inRate":0.9, "outRate":0.9}],
+    ],
+    "triangles": [
+            ["id1:",  "id2:",  "id3:"],
+            {"dragCoef":17},
+            {"groundModel":"plastic"},
+            ["sp2rr", "sp1rr", "sp1r",  {"liftCoef":88, "stallAngle":0.45}],
+            ["sp2rr", "sp1r",  "sp2r",  {"liftCoef":88, "stallAngle":0.45}],
+            ["sp1r",  "sp1",   "sp2r",  {"liftCoef":88, "stallAngle":0.45}],
+            ["sp2r",  "sp1",   "sp2",   {"liftCoef":88, "stallAngle":0.45}],
+            ["sp1",   "sp1l",  "sp2l",  {"liftCoef":88, "stallAngle":0.45}],
+            ["sp1",   "sp2l",  "sp2",   {"liftCoef":88, "stallAngle":0.45}],
+            ["sp1l",  "sp1ll", "sp2ll", {"liftCoef":88, "stallAngle":0.45}],
+            ["sp1l",  "sp2ll", "sp2l",  {"liftCoef":88, "stallAngle":0.45}],
+            //wing struts: symmetric, drag only (no side lift)
+            ["sp1l",  "sp3l",  "sp4l",  {"liftCoef":0}],
+            ["sp1r",  "sp4r",  "sp3r",  {"liftCoef":0}],
+            //side plates
+            ["sp2rr", "sp6rr", "sp5rr", {"liftCoef":30}],
+            ["sp2rr", "sp5rr", "sp1rr", {"liftCoef":30}],
+            ["sp1ll", "sp5ll", "sp2ll", {"liftCoef":30}],
+            ["sp5ll", "sp6ll", "sp2ll", {"liftCoef":30}],
+
+            {"dragCoef":5},
+            {"triangleType":"NONCOLLIDABLE"},
+            {"breakGroup":"spoiler_R"},
+            ["f9l",   "f7",    "f9r",   {"liftCoef":250, "stallAngle":0.45}],
+            {"breakGroup":""},
+            {"triangleType":"NORMALTYPE"},
+            {"group":""},
+
+
     ],
 },
 }
