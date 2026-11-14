@@ -3668,11 +3668,14 @@
                 {
                     "name": "activeBiasRear",
                     "differentialName": "differential_R",
-                    "avDiffThreshold": 12
+                    "avDiffThreshold": 40
                 }
             ],
             [
                 "velocitaStraightLine"
+            ],
+            [
+                "velocitaDiag"
             ]
         ],
         "vehicleData": {
@@ -3699,9 +3702,9 @@
                     ],
                     [
                         "mainEngine",
-                        0.15,
+                        0.11,
+                        3.0,
                         2.0,
-                        1.2,
                         0.1,
                         20,
                         6
@@ -3857,7 +3860,7 @@
                     {
                         "controllerName": "activeBiasRear",
                         "isEnabled": true,
-                        "maxBiasOffset": 0.25
+                        "maxBiasOffset": 0.2
                     }
                 ],
                 [
@@ -3900,7 +3903,7 @@
                             {
                                 "controllerName": "activeBiasRear",
                                 "isEnabled": true,
-                                "maxBiasOffset": 0.32
+                                "maxBiasOffset": 0.25
                             }
                         ],
                         [
@@ -4395,7 +4398,7 @@
     "slotType" : "bolide_steering",
     "controller": [
         ["fileName"],
-        ["velocitaSteering", {"speedSensitivity":0.25, "rateScale":1.5}],
+        ["velocitaSteering", {"speedSensitivity":0.25, "rateScale":1.5, "highSpeedTrim":-0.0004}],
     ],
     "flexbodies": [
          ["mesh", "[group]:", "nonFlexMaterials"],
