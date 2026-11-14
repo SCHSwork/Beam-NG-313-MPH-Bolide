@@ -39,14 +39,15 @@ end
 
 local current = 0
 local sensitivity = 1
-local highSpeedTrim = 0   -- small left trim at very high speed to cancel weight-bias drift
+local highSpeedTrim = 0
+local rateScale = 1        -- per-config steering speed multiplier   -- small left trim at very high speed to cancel weight-bias drift
 
 local function updateGFX(dt)
   local ev = electrics.values
   local speed = abs(ev.wheelspeed or ev.airspeed or 0)
   local scale = 1 - (1 - scaleFor(speed)) * sensitivity
   local target = (ev.steering_input or 0) * scale
-  local rate = rateFor(speed)
+  local rate = rateFor(speed) * rateScale
   -- returning toward center is allowed to be quicker than turning in
   if abs(target) < abs(current) and target * current >= 0 then rate = rate * 1.6 end
   local step = rate * dt
@@ -66,6 +67,7 @@ local function init(jbeamData)
   current = 0
   sensitivity = (jbeamData and jbeamData.speedSensitivity) or 1
   highSpeedTrim = (jbeamData and jbeamData.highSpeedTrim) or 0
+  rateScale = (jbeamData and jbeamData.rateScale) or 1
   electrics.values.velocita_steer = 0
 end
 
