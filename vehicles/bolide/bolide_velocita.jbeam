@@ -2323,7 +2323,7 @@
     "slotType" : "bolide_steering",
     "controller": [
         ["fileName"],
-        ["velocitaSteering", {"speedSensitivity":0.55, "highSpeedTrim":-0.0006}],
+        ["velocitaSteering", {"speedSensitivity":0.55, "highSpeedTrim":-0.0003}],
     ],
     "flexbodies": [
          ["mesh", "[group]:", "nonFlexMaterials"],
