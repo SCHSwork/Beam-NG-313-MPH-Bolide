@@ -113,8 +113,8 @@
     "tire_R_16x12": "tire_R_335_35_16_race",
     "wheel_F_centerlug": "wheel_civetta_01a_16x9_F",
     "wheel_R_centerlug": "civetta_wheel_01a_16x12_R",
-    "n2o_bottle": "n2o_bottle_10lb",
-    "n2o_shot": "n2o_shot_250"
+    "n2o_bottle": "n2o_bottle_velocita_20lb",
+    "n2o_shot": "n2o_shot_variable"
   },
   "vars": {
     "$headlightPitchComp": 0.3,
@@ -136,19 +136,19 @@
     "$springheight_R": 0.035,
     "$toe_F": 0.996,
     "$toe_R": 0.992,
-    "$wastegateStart": 32,
+    "$wastegateStart": 38,
     "$revLimiterRPM": 9400,
     "$revLimiterCutTime": 0.08,
     "$gear_R": 3.27,
     "$gear_1": 3.3,
-    "$gear_2": 2.5,
-    "$gear_3": 1.95,
-    "$gear_4": 1.55,
-    "$gear_5": 1.25,
+    "$gear_2": 2.57,
+    "$gear_3": 2.01,
+    "$gear_4": 1.56,
+    "$gear_5": 1.22,
     "$brakebias": 0.62,
-    "$gear_6": 1.02,
-    "$gear_7": 0.83,
-    "$n2o_rpm": 3000,
+    "$gear_6": 0.95,
+    "$gear_7": 0.74,
+    "$n2o_rpm": 4500,
     "$n2o_gear": 2,
     "$arb_spring_F": 30000,
     "$difftorquesplit_C": 0.62,
@@ -156,6 +156,7 @@
     "$lsdlockcoef_C": 0.15,
     "$lsdlockcoefrev_C": 0.02,
     "$lsdpreload_F": 40,
-    "$lsdlockcoef_F": 0.08
+    "$lsdlockcoef_F": 0.08,
+    "$n2o_power": 400
   }
 }

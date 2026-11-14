@@ -499,8 +499,8 @@
             "headGasketDamageThreshold": 2500000,
             "pistonRingDamageThreshold": 2500000,
             "connectingRodDamageThreshold": 3200000,
-            "$*maxTorqueRating": 3.2,
-            "$*maxOverTorqueDamage": 2.8
+            "$*maxTorqueRating": 4.5,
+            "$*maxOverTorqueDamage": 4.0
         }
     },
     "bolide_mod_velocita_dse": {
@@ -913,7 +913,7 @@
     "slotType" : "bolide_intake",
     "variables": [
         ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
-        ["$wastegateStart", "range", "psi", "Engine", 26, 12, 32, "Turbo Boost Pressure", "Pressure at which the turbocharger wastegate begins to open", {"stepDis":0.5}],
+        ["$wastegateStart", "range", "psi", "Engine", 26, 12, 40, "Turbo Boost Pressure", "Pressure at which the turbocharger wastegate begins to open", {"stepDis":0.5}],
     ],
     "slots2": [
         ["name",                 "allowTypes",             "denyTypes", "default",                "description"],
@@ -936,7 +936,7 @@
         "whinePitchPer10kRPM": 0.042,
         "wastegateStart":"$wastegateStart",
         "wastegateLimit":"$=$wastegateStart+1",
-        "maxExhaustPower": 95000,
+        "maxExhaustPower": 120000,
         "backPressureCoef": 0.00008,
         "frictionCoef": 100,
         "inertia":3.2,
@@ -3507,6 +3507,69 @@
         ["velocita_sl1", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.29, "y":-0.47, "z":0.80}, "lightRange":0.6, "lightIntensityLm":160, "lightColor":{"r":40, "g":255, "b":60, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.035}],
         ["velocita_sl2", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.34, "y":-0.47, "z":0.80}, "lightRange":0.6, "lightIntensityLm":160, "lightColor":{"r":255, "g":170, "b":0, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.035}],
         ["velocita_sl3", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.39, "y":-0.47, "z":0.80}, "lightRange":0.6, "lightIntensityLm":160, "lightColor":{"r":255, "g":30, "b":30, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.035}],
+    ],
+},
+"n2o_bottle_velocita_20lb": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Velocita 20lb Nitrous Bottle",
+        "value":200,
+    },
+    "slotType" : "n2o_bottle",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+    ],
+    "props": [
+        ["func",     "mesh",        "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        {"optional":true},
+        ["null", "n2o_bottle_10lb", "f2r","f2rr","f1r",        {"x":90, "y":180, "z":10}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.06,"y":0.3, "z":-0.02}}],
+        {"optional":false},
+    ],
+    "powertrain": [
+        ["type", "name", "inputName", "inputIndex"],
+    ],
+    "energyStorage": [
+        ["type", "name"],
+        ["n2oTank", "mainBottle"],
+    ],
+    "mainBottle": {
+        "capacity": 9.07,
+        "startingCapacity": 9.07,
+    },
+    "mainEngine": {
+        "energyStorage": ["fueltank_R", "fueltank_L", "mainBottle"],
+    },
+    "n2o": {
+        "purgeValves:": ["f5r","f6r"],
+    },
+    "nodes": [
+         ["id",  "posX", "posY", "posZ"],
+         //--N2O Bottle--
+         {"nodeMaterial":"|NM_METAL"},
+         {"frictionCoef":0.5},
+         {"collision":true},
+         {"selfCollision":false},
+         {"group":"n2o_bottle"},
+         {"nodeWeight":11},
+         {"engineGroup":"n2o_bottle"},
+         ["n2o",-0.34,  -0.58,   0.36],
+         {"engineGroup":""},
+         {"group":""},
+         {"collision":true},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":1501000,"beamDamp":150},
+          {"beamDeform":12750,"beamStrength":"FLT_MAX"},
+          {"deformLimitExpansion":""},
+          ["n2o",  "f2r"],
+          ["n2o",  "f1r"],
+          ["n2o",  "f2rr"],
+          ["n2o",  "f1rr"],
+          ["n2o",  "f2l"],
+          ["n2o",  "f1l"],
+          {"beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
     ],
 },
 }
