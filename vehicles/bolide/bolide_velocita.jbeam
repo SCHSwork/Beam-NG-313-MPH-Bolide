@@ -581,6 +581,9 @@
                     "differentialName": "differential_R",
                     "avDiffThreshold": 12
                 }
+            ],
+            [
+                "velocitaDiag"
             ]
         ],
         "vehicleData": {
@@ -1880,6 +1883,12 @@
                     "differentialName": "differential_R",
                     "avDiffThreshold": 12
                 }
+            ],
+            [
+                "velocitaDiag"
+            ],
+            [
+                "velocitaStraightLine"
             ]
         ],
         "vehicleData": {
