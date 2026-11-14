@@ -3018,11 +3018,9 @@
             ["sp1",   "sp2l",  "sp2",   {"liftCoef":60, "stallAngle":0.45}],
             ["sp1l",  "sp1ll", "sp2ll", {"liftCoef":60, "stallAngle":0.45}],
             ["sp1l",  "sp2ll", "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp1l",  "sp3l",  "sp4l",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp1l",  "sp4l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp2r",  "sp4r",  "sp3r",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            //wing struts: symmetric, drag only (no side lift)
+            ["sp1l",  "sp3l",  "sp4l",  {"liftCoef":0}],
+            ["sp1r",  "sp4r",  "sp3r",  {"liftCoef":0}],
             //side plates
             ["sp2rr", "sp6rr", "sp5rr", {"liftCoef":30}],
             ["sp2rr", "sp5rr", "sp1rr", {"liftCoef":30}],
@@ -3256,11 +3254,9 @@
             ["sp1",   "sp2l",  "sp2",   {"liftCoef":60, "stallAngle":0.45}],
             ["sp1l",  "sp1ll", "sp2ll", {"liftCoef":60, "stallAngle":0.45}],
             ["sp1l",  "sp2ll", "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp1l",  "sp3l",  "sp4l",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp1l",  "sp4l",  "sp2l",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp2r",  "sp4r",  "sp3r",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
-            ["sp2r",  "sp3r",  "sp1r",  {"liftCoef":60, "stallAngle":0.45}],
+            //wing struts: symmetric, drag only (no side lift)
+            ["sp1l",  "sp3l",  "sp4l",  {"liftCoef":0}],
+            ["sp1r",  "sp4r",  "sp3r",  {"liftCoef":0}],
             //side plates
             ["sp2rr", "sp6rr", "sp5rr", {"liftCoef":30}],
             ["sp2rr", "sp5rr", "sp1rr", {"liftCoef":30}],
