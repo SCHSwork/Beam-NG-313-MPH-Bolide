@@ -77,7 +77,7 @@
     "bolide_rollcage": "",
     "bolide_seat_FL": "bolide_seat_FL_race",
     "bolide_seat_FR": "bolide_seat_FR_race",
-    "bolide_shifter": "bolide_shifter_M",
+    "bolide_shifter": "bolide_shifter_A",
     "bolide_shiftlight": "bolide_shiftlight_velocita",
     "bolide_sideskirt_L": "bolide_sideskirt_b_L",
     "bolide_sideskirt_R": "bolide_sideskirt_b_R",

@@ -9,9 +9,9 @@
   "Transmission": "Dual-Clutch",
   "Value": 560000,
   "defaultMultiPaintSetup": {
-    "name": "Velocita AWD Electric",
-    "paint1": "Blu Vibrante",
-    "paint2": "Nero Opaco",
-    "paint3": "Nero Opaco"
+    "name": "Velocita AWD",
+    "paint1": "Nero Puro",
+    "paint2": "Azzurro",
+    "paint3": "Azzurro"
   }
 }

@@ -3504,9 +3504,9 @@
     ],
     "props": [
         ["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"],
-        ["velocita_sl1", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":-0.05, "y":-0.06, "z":0.06}, "lightRange":0.45, "lightBrightness":1.6, "lightColor":{"r":40, "g":255, "b":60, "a":255}, "lightCastShadows":false, "flareName":"", "flareScale":0}],
-        ["velocita_sl2", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.0, "y":-0.06, "z":0.06}, "lightRange":0.45, "lightBrightness":1.6, "lightColor":{"r":255, "g":170, "b":0, "a":255}, "lightCastShadows":false, "flareName":"", "flareScale":0}],
-        ["velocita_sl3", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslation":{"x":0.05, "y":-0.06, "z":0.06}, "lightRange":0.45, "lightBrightness":1.6, "lightColor":{"r":255, "g":30, "b":30, "a":255}, "lightCastShadows":false, "flareName":"", "flareScale":0}],
+        ["velocita_sl1", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.29, "y":-0.47, "z":0.80}, "lightRange":0.6, "lightIntensityLm":160, "lightColor":{"r":40, "g":255, "b":60, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.035}],
+        ["velocita_sl2", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.34, "y":-0.47, "z":0.80}, "lightRange":0.6, "lightIntensityLm":160, "lightColor":{"r":255, "g":170, "b":0, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.035}],
+        ["velocita_sl3", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.39, "y":-0.47, "z":0.80}, "lightRange":0.6, "lightIntensityLm":160, "lightColor":{"r":255, "g":30, "b":30, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.035}],
     ],
 },
 }
