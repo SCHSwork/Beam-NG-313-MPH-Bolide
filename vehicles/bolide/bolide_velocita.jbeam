@@ -584,6 +584,9 @@
             ],
             [
                 "velocitaDiag"
+            ],
+            [
+                "velocitaStraightLine"
             ]
         ],
         "vehicleData": {

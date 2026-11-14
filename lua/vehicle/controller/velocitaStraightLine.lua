@@ -1,38 +1,39 @@
 -- Velocita high-speed straight-line stability (by Lincoln)
--- At very high speed the left side of the car carries more load, so the front limited-slip diff
--- sends it more torque and the car pulls right. Above ~125 mph this blends the front diff toward
--- fully open (equal torque left/right). Below that it behaves as a normal LSD for traction.
+-- At very high speed the left side of the car carries more load, so limited-slip diffs send the
+-- left wheels more torque and the car pulls right. Above ~125 mph this blends the front and rear
+-- LSDs toward fully open (equal torque left/right). Below that they behave as normal LSDs.
+-- In drift mode the rear diff is left alone (the drift controller owns it).
 local M = {}
 M.type = "auxiliary"
 
-local front
-local orig = {}
+local diffs = {}          -- name -> {dev=, preload=, lock=, revLock=}
 local startSpeed, fullSpeed = 56, 67   -- m/s (~125 mph -> ~150 mph)
 
-local function findDevice()
-  front = powertrain.getDevice("differential_F")
-  if front and orig.preload == nil then
-    orig.preload = front.lsdPreload
-    orig.lock = front.lsdLockCoef
-    orig.revLock = front.lsdRevLockCoef
+local function track(name)
+  if diffs[name] then return end
+  local d = powertrain.getDevice(name)
+  if d and d.lsdPreload ~= nil then
+    diffs[name] = {dev = d, preload = d.lsdPreload, lock = d.lsdLockCoef, revLock = d.lsdRevLockCoef}
   end
 end
 
 local function updateGFX(dt)
-  if not front then findDevice() end
-  if not front or orig.preload == nil then return end
+  track("differential_F"); track("differential_R")
   local speed = math.abs(electrics.values.airspeed or electrics.values.wheelspeed or 0)
   local k = math.min(math.max((speed - startSpeed) / (fullSpeed - startSpeed), 0), 1)  -- 0 = normal LSD, 1 = open
-  front.lsdPreload = orig.preload * (1 - k)
-  front.lsdLockCoef = (orig.lock or 0) * (1 - k)
-  if orig.revLock then front.lsdRevLockCoef = orig.revLock * (1 - k) end
-  electrics.values.velocita_frontdiff_open = k
+  local drifting = (electrics.values.velocita_drift or 0) > 0.5
+  for name, s in pairs(diffs) do
+    if not (drifting and name == "differential_R") then
+      s.dev.lsdPreload = s.preload * (1 - k)
+      s.dev.lsdLockCoef = (s.lock or 0) * (1 - k)
+      if s.revLock then s.dev.lsdRevLockCoef = s.revLock * (1 - k) end
+    end
+  end
+  electrics.values.velocita_diff_open = k
 end
 
-local function init() front = nil; orig = {} end
-local function reset() if front and orig.preload then front.lsdPreload = orig.preload; front.lsdLockCoef = orig.lock end end
+local function init() diffs = {} end
 
 M.init = init
-M.reset = reset
 M.updateGFX = updateGFX
 return M
