@@ -2512,7 +2512,7 @@
             ["id1:", "id2:"],
             {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
             //rack
-            {"beamSpring":8001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            {"beamSpring":8001000,"beamDamp":250,"beamDeform":450000,"beamStrength":"FLT_MAX"},
             ["fh6r", "fh6l", {"vkTag":"steer_rack_F"}],
             {"beamSpring":5001000,"beamDamp":250},
             {"beamDeform":22400,"beamStrength":"FLT_MAX"},
@@ -2534,7 +2534,7 @@
             ["fx5r", "fx1l"],
 
             //tie rods
-            {"beamSpring":18001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            {"beamSpring":18001000,"beamDamp":250,"beamDeform":450000,"beamStrength":"FLT_MAX"},
             ["fh3r", "fh6r", {"vkTag":"steer_link_FR", "beamPrecompression":"$=$toe_F-$steer_center_F","beamPrecompressionTime":0.5}],
             ["fh3l", "fh6l", {"vkTag":"steer_link_FL", "beamPrecompression":"$=$toe_F+$steer_center_F","beamPrecompressionTime":0.5}],
             {"deformLimitExpansion":""},
@@ -2553,7 +2553,7 @@
     "hydros": [
             ["id1:","id2:"],
             {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-            {"beamSpring":10001000,"beamDamp":25,"beamDeform":"FLT_MAX","beamStrength":275000},
+            {"beamSpring":10001000,"beamDamp":25,"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
             ["fh6r","fx5l", {"factor":-0.14,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
             ["fh6l","fx5r", {"factor":0.14,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
             //reference hydro on the normal steering input (keeps steering wheel animation + UI working); very weak so it adds no force
@@ -4666,7 +4666,7 @@
             ["id1:", "id2:"],
             {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
             //rack
-            {"beamSpring":8001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            {"beamSpring":8001000,"beamDamp":250,"beamDeform":450000,"beamStrength":"FLT_MAX"},
             ["fh6r", "fh6l", {"vkTag":"steer_rack_F"}],
             {"beamSpring":5001000,"beamDamp":250},
             {"beamDeform":22400,"beamStrength":"FLT_MAX"},
@@ -4688,7 +4688,7 @@
             ["fx5r", "fx1l"],
 
             //tie rods
-            {"beamSpring":18001000,"beamDamp":250,"beamDeform":65000,"beamStrength":275000},
+            {"beamSpring":18001000,"beamDamp":250,"beamDeform":450000,"beamStrength":"FLT_MAX"},
             ["fh3r", "fh6r", {"vkTag":"steer_link_FR", "beamPrecompression":"$=$toe_F-$steer_center_F","beamPrecompressionTime":0.5}],
             ["fh3l", "fh6l", {"vkTag":"steer_link_FL", "beamPrecompression":"$=$toe_F+$steer_center_F","beamPrecompressionTime":0.5}],
             {"deformLimitExpansion":""},
@@ -4707,7 +4707,7 @@
     "hydros": [
             ["id1:","id2:"],
             {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
-            {"beamSpring":10001000,"beamDamp":25,"beamDeform":"FLT_MAX","beamStrength":275000},
+            {"beamSpring":10001000,"beamDamp":25,"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
             ["fh6r","fx5l", {"factor":-0.14,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
             ["fh6l","fx5r", {"factor":0.14,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
             //reference hydro on the normal steering input (keeps steering wheel animation + UI working); very weak so it adds no force
