@@ -123,10 +123,10 @@
     "$spring_F": 78000,
     "$spring_R": 150000,
     "$damp_rebound_F": 11000,
-    "$damp_rebound_R": 16000,
+    "$damp_rebound_R": 14500,
     "$lsdpreload_R": 50,
     "$lsdlockcoef_R": 0.1,
-    "$lsdlockcoefrev_R": 0,
+    "$lsdlockcoefrev_R": 0.08,
     "$camber_F": 0.977,
     "$camber_R": 0.986,
     "$trackoffset_F": -0.01,
@@ -135,7 +135,7 @@
     "$springheight_F": -0.01,
     "$springheight_R": 0.0,
     "$toe_F": 0.999,
-    "$toe_R": 0.997,
+    "$toe_R": 0.993,
     "$wastegateStart": 34,
     "$revLimiterRPM": 9400,
     "$revLimiterCutTime": 0.08,
@@ -158,6 +158,6 @@
     "$lsdpreload_F": 15,
     "$lsdlockcoef_F": 0.04,
     "$caster_F": 1.01,
-    "$arb_spring_R_race": 32000
+    "$arb_spring_R_race": 26000
   }
 }
