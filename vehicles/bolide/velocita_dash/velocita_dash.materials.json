@@ -7,17 +7,48 @@
       {
         "baseColorMap": "@velocita_dash",
         "emissiveMap": "@velocita_dash",
-        "emissiveFactor": [1, 1, 1],
-        "emissiveIntensityNits": 140,
+        "emissiveFactor": [
+          1,
+          1,
+          1
+        ],
+        "emissiveIntensityNits": 30,
         "metallicFactor": 0,
-        "roughnessFactor": 0.15,
+        "roughnessFactor": 0.75,
         "pixelSpecular": true
       },
       {},
       {},
       {}
     ],
-    "dynamicCubemap": true,
+    "dynamicCubemap": false,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "version": 1.5
+  },
+  "velocita_dash_hidden": {
+    "name": "velocita_dash_hidden",
+    "mapTo": "velocita_dash_hidden",
+    "class": "Material",
+    "Stages": [
+      {
+        "baseColorFactor": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "opacityFactor": 0
+      },
+      {},
+      {},
+      {}
+    ],
+    "translucent": true,
+    "translucentZWrite": false,
+    "castShadows": false,
+    "alphaTest": true,
+    "alphaRef": 255,
     "materialTag0": "beamng",
     "materialTag1": "vehicle",
     "version": 1.5

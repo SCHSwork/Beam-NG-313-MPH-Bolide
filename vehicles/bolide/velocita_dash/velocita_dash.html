@@ -5,7 +5,7 @@
 <!-- Velocita digital dash (by Lincoln). Drawn onto the Bolide gauge faces: each round dial
      of the stock gauge texture becomes a small digital screen. -->
 <style>
-  html, body { margin: 0; padding: 0; background: #05070a; overflow: hidden; }
+  html, body { margin: 0; padding: 0; background: #010203; overflow: hidden; }
   canvas { display: block; }
 </style>
 </head>
@@ -31,8 +31,8 @@ function num(v) { v = Number(v); return isFinite(v) ? v : 0; }
 
 function disc(p, r, rim) {
   var grd = g.createRadialGradient(p.x, p.y - r * 0.3, r * 0.1, p.x, p.y, r);
-  grd.addColorStop(0, "#151b24");
-  grd.addColorStop(1, "#06080b");
+  grd.addColorStop(0, "#0b0f14");
+  grd.addColorStop(1, "#020304");
   g.fillStyle = grd;
   g.beginPath(); g.arc(p.x, p.y, r, 0, Math.PI * 2); g.fill();
   if (rim) {
@@ -71,7 +71,7 @@ function smallGauge(p, label, value, unit, frac, warn) {
 }
 
 function draw() {
-  g.fillStyle = "#05070a"; g.fillRect(0, 0, 1024, 1024);
+  g.fillStyle = "#010203"; g.fillRect(0, 0, 1024, 1024);
 
   // ---------------- speedometer ----------------
   disc(SPEEDO, SPEEDO.r, "#263040");

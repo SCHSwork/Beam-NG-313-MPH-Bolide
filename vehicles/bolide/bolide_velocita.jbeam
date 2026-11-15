@@ -12,11 +12,11 @@
     ],
     "glowMap":{
         "bolide_gauges":{"simpleFunction":{"lowhighbeam":0.6}, "off":"velocita_dash_screen", "on":"velocita_dash_screen"},
+        "bolide_gauges_odo":{"simpleFunction":{"lowhighbeam":0.6}, "off":"velocita_dash_hidden", "on":"velocita_dash_hidden"},
     },
     "controller": [
         ["fileName"],
         ["gauges/genericGauges", {"name":"velocitaDash"}],
-        ["gauges/analogOdometer", {"name":"analogOdometer"}],
     ],
     "velocitaDash": {
         "configuration": {
@@ -32,30 +32,6 @@
             "electrics": ["wheelspeed", "rpmTacho", "rpm", "gear", "turboBoost", "watertemp", "oiltemp", "fuel",
                           "tcsActive", "velocita_tc", "velocita_tcEnabled", "velocita_tcSlip",
                           "velocita_sl1", "velocita_sl2", "velocita_sl3"],
-        },
-    },
-    "analogOdometer": {
-        "configuration": {
-            "materialName": "@bolide_gauges_odo",
-            "htmlPath": "local://local/vehicles/common/analogOdo.html",
-            "displayWidth":512,
-            "displayHeight":32,
-            "odometerDigits":7,
-            "odometerHasDecimalSeparator":true,
-            "tripHasDecimalSeparator":true,
-            "unit":"imperial",
-            "floatStyle":{"color":"black"},
-            "bodyStyle":{
-                "background": "url('/vehicles/common/odometer_analog_b.cef_color.png')",
-                "font-family": "OpenSans",
-                "font-size": "28px",
-                "color": "white",
-                "letter-spacing": "15.5px",
-                "margin": "-4.5px 10.5px",
-                "transform": "scaleX(1.26)",
-                "transform-origin": "left",
-            },
-            "tripDivStyle":{"margin-left": "-3px", "position": "fixed", "letter-spacing": "32px"}
         },
     },
 },
