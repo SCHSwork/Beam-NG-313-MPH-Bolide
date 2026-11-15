@@ -104,6 +104,7 @@ local function updateGFX(dt)
     end
   end
 
+  ev.velocita_tcEnabled = enabled and 1 or 0
   -- warning light + on-screen tag
   local acting = enabled and ev.tcsActive
   if acting then

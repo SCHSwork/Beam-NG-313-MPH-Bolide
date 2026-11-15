@@ -1,4 +1,64 @@
 {
+"bolide_gauges_race_velocita_digital": {
+    "information":{
+        "authors":"Lincoln",
+        "name":"Velocita Digital Dash",
+        "value":900,
+    },
+    "slotType" : "bolide_gauges_race",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["bolide_gauges_race", ["bolide_dash", "bolide_chassis"]],
+    ],
+    "glowMap":{
+        "bolide_gauges":{"simpleFunction":{"lowhighbeam":0.6}, "off":"velocita_dash_screen", "on":"velocita_dash_screen"},
+    },
+    "controller": [
+        ["fileName"],
+        ["gauges/genericGauges", {"name":"velocitaDash"}],
+        ["gauges/analogOdometer", {"name":"analogOdometer"}],
+    ],
+    "velocitaDash": {
+        "configuration": {
+            "materialName": "@velocita_dash",
+            "htmlPath": "local://local/vehicles/bolide/velocita_dash/velocita_dash.html",
+            "displayWidth":1024,
+            "displayHeight":1024,
+            "maxRPM":10000,
+            "redline":9000,
+            "accentColor":"#ff7a1a",
+        },
+        "displayData": {
+            "electrics": ["wheelspeed", "rpmTacho", "rpm", "gear", "turboBoost", "watertemp", "oiltemp", "fuel",
+                          "tcsActive", "velocita_tc", "velocita_tcEnabled", "velocita_tcSlip",
+                          "velocita_sl1", "velocita_sl2", "velocita_sl3"],
+        },
+    },
+    "analogOdometer": {
+        "configuration": {
+            "materialName": "@bolide_gauges_odo",
+            "htmlPath": "local://local/vehicles/common/analogOdo.html",
+            "displayWidth":512,
+            "displayHeight":32,
+            "odometerDigits":7,
+            "odometerHasDecimalSeparator":true,
+            "tripHasDecimalSeparator":true,
+            "unit":"imperial",
+            "floatStyle":{"color":"black"},
+            "bodyStyle":{
+                "background": "url('/vehicles/common/odometer_analog_b.cef_color.png')",
+                "font-family": "OpenSans",
+                "font-size": "28px",
+                "color": "white",
+                "letter-spacing": "15.5px",
+                "margin": "-4.5px 10.5px",
+                "transform": "scaleX(1.26)",
+                "transform-origin": "left",
+            },
+            "tripDivStyle":{"margin-left": "-3px", "position": "fixed", "letter-spacing": "32px"}
+        },
+    },
+},
     "bolide_brake_F_velocita": {
         "information": {
             "authors": "BeamNG, Lincoln",
@@ -3620,7 +3680,7 @@
 "bolide_shiftlight_velocita": {
     "information":{
         "authors":"Lincoln",
-        "name":"Velocita Dash Shift Lights + TC Light",
+        "name":"Velocita Shift Light Logic (shown on digital dash)",
         "value":350,
     },
     "slotType" : "bolide_shiftlight",
@@ -3629,13 +3689,6 @@
         ["shiftLights", {"name":"velocitaShiftLights", "engineName":"mainEngine", "maxEngineRPMOffset":300, "rpmRange":1800,
             "outputElectrics":["velocita_sl1", "velocita_sl2", "velocita_sl3"],
             "flashingOutputElectrics":["velocita_sl1", "velocita_sl2", "velocita_sl3"], "flashDuration":0.07}],
-    ],
-    "props": [
-        ["func", "mesh", "idRef:", "idX:", "idY:", "baseRotation", "rotation", "translation", "min", "max", "offset", "multiplier"],
-        ["velocita_sl1", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.29, "y":-0.47, "z":0.80}, "lightRange":0.6, "lightIntensityLm":160, "lightColor":{"r":40, "g":255, "b":60, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.035}],
-        ["velocita_sl2", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.34, "y":-0.47, "z":0.80}, "lightRange":0.6, "lightIntensityLm":160, "lightColor":{"r":255, "g":170, "b":0, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.035}],
-        ["velocita_sl3", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.39, "y":-0.47, "z":0.80}, "lightRange":0.6, "lightIntensityLm":160, "lightColor":{"r":255, "g":30, "b":30, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.035}],
-        ["velocita_tc", "POINTLIGHT", "dsh","dshl","f7", {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 1, 0, 1, {"baseTranslationGlobal":{"x":0.22, "y":-0.47, "z":0.80}, "lightRange":0.9, "lightIntensityLm":260, "lightColor":{"r":255, "g":190, "b":0, "a":255}, "lightCastShadows":false, "flareName":"vehicleBrakeLightFlare", "flareScale":0.06}],
     ],
 },
 "n2o_bottle_velocita_20lb": {

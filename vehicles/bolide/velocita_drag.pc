@@ -35,7 +35,7 @@
     "bolide_frunk": "bolide_airduct_turbo",
     "bolide_fueltank_L": "bolide_fueltank_L",
     "bolide_fueltank_R": "bolide_fueltank_R",
-    "bolide_gauges_race": "bolide_gauges_race_metric_turbo",
+    "bolide_gauges_race": "bolide_gauges_race_velocita_digital",
     "bolide_halfshafts_R": "bolide_halfshafts_R",
     "bolide_headlight_b_L": "bolide_headlight_b_L",
     "bolide_headlight_b_R": "bolide_headlight_b_R",

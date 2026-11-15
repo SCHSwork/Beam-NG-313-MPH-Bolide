@@ -1,0 +1,25 @@
+{
+  "velocita_dash_screen": {
+    "name": "velocita_dash_screen",
+    "mapTo": "velocita_dash_screen",
+    "class": "Material",
+    "Stages": [
+      {
+        "baseColorMap": "@velocita_dash",
+        "emissiveMap": "@velocita_dash",
+        "emissiveFactor": [1, 1, 1],
+        "emissiveIntensityNits": 140,
+        "metallicFactor": 0,
+        "roughnessFactor": 0.15,
+        "pixelSpecular": true
+      },
+      {},
+      {},
+      {}
+    ],
+    "dynamicCubemap": true,
+    "materialTag0": "beamng",
+    "materialTag1": "vehicle",
+    "version": 1.5
+  }
+}

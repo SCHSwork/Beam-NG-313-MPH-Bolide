@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- Velocita digital dash (by Lincoln). Drawn onto the Bolide gauge faces: each round dial
+     of the stock gauge texture becomes a small digital screen. -->
+<style>
+  html, body { margin: 0; padding: 0; background: #05070a; overflow: hidden; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1024" height="1024"></canvas>
+<script>
+"use strict";
+var cv = document.getElementById("c");
+var g = cv.getContext("2d");
+var FONT = "'Open Sans', 'OpenSans', 'Segoe UI', Arial, sans-serif";
+var cfg = { accent: "#ff7a1a", maxRPM: 10000, redline: 9000 };
+var d = { speed: 0, rpm: 0, gear: "N", boost: 0, water: 0, oil: 0, fuel: 1, tc: 0, tcOn: 1, sl: [0, 0, 0], slip: 0 };
+var blink = false, t0 = 0;
+
+// dial positions on the 1024x1024 Bolide gauge texture
+var SPEEDO = { x: 270, y: 265, r: 250 };
+var TACHO = { x: 760, y: 745, r: 250 };
+var FUEL = { x: 648, y: 100 }, OIL = { x: 900, y: 100 }, WATER = { x: 897, y: 345 };
+var AMPS = { x: 130, y: 665 }, BOOST = { x: 325, y: 880 };
+
+function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+function num(v) { v = Number(v); return isFinite(v) ? v : 0; }
+
+function disc(p, r, rim) {
+  var grd = g.createRadialGradient(p.x, p.y - r * 0.3, r * 0.1, p.x, p.y, r);
+  grd.addColorStop(0, "#151b24");
+  grd.addColorStop(1, "#06080b");
+  g.fillStyle = grd;
+  g.beginPath(); g.arc(p.x, p.y, r, 0, Math.PI * 2); g.fill();
+  if (rim) {
+    g.lineWidth = 4; g.strokeStyle = rim;
+    g.beginPath(); g.arc(p.x, p.y, r - 3, 0, Math.PI * 2); g.stroke();
+  }
+}
+
+function text(s, x, y, size, color, weight, align) {
+  g.font = (weight || "700") + " " + size + "px " + FONT;
+  g.fillStyle = color; g.textAlign = align || "center"; g.textBaseline = "middle";
+  g.fillText(s, x, y);
+}
+
+function arcBar(p, r, w, a0, a1, frac, colorFn) {
+  g.lineCap = "butt"; g.lineWidth = w;
+  g.strokeStyle = "#1c232d";
+  g.beginPath(); g.arc(p.x, p.y, r, a0, a1); g.stroke();
+  var segs = 48, span = (a1 - a0) / segs;
+  for (var i = 0; i < segs; i++) {
+    var f = (i + 1) / segs;
+    if (f > frac + 1e-6) break;
+    g.strokeStyle = colorFn(f);
+    g.beginPath(); g.arc(p.x, p.y, r, a0 + i * span + 0.004, a0 + (i + 1) * span - 0.004); g.stroke();
+  }
+}
+
+function smallGauge(p, label, value, unit, frac, warn) {
+  disc(p, 92, warn ? "#ff3030" : "#263040");
+  arcBar(p, 74, 12, Math.PI * 0.8, Math.PI * 2.2, clamp(frac, 0, 1), function (f) {
+    return warn ? "#ff3030" : cfg.accent;
+  });
+  text(value, p.x, p.y + 4, 46, "#ffffff", "800");
+  text(unit, p.x, p.y + 42, 20, "#8fa0b5", "600");
+  text(label, p.x, p.y - 40, 18, "#8fa0b5", "700");
+}
+
+function draw() {
+  g.fillStyle = "#05070a"; g.fillRect(0, 0, 1024, 1024);
+
+  // ---------------- speedometer ----------------
+  disc(SPEEDO, SPEEDO.r, "#263040");
+  var mph = Math.round(Math.abs(d.speed) * 2.23694);
+  arcBar(SPEEDO, 215, 22, Math.PI * 0.75, Math.PI * 2.25, clamp(mph / 320, 0, 1), function (f) {
+    return f > 0.85 ? "#ff3b3b" : cfg.accent;
+  });
+  text(String(mph), SPEEDO.x, SPEEDO.y - 10, 150, "#ffffff", "800");
+  text("MPH", SPEEDO.x, SPEEDO.y + 78, 32, "#8fa0b5", "700");
+  // TC badge in speedo
+  var tcActive = d.tc > 0.5;
+  if (!d.tcOn) {
+    text("TC OFF", SPEEDO.x, SPEEDO.y + 140, 38, "#ff9a3c", "800");
+  } else if (tcActive) {
+    g.fillStyle = "#ffb000";
+    roundRect(SPEEDO.x - 80, SPEEDO.y + 112, 160, 58, 14); g.fill();
+    text("TC", SPEEDO.x, SPEEDO.y + 142, 44, "#000000", "900");
+  }
+
+  // ---------------- tachometer ----------------
+  disc(TACHO, TACHO.r, "#263040");
+  var rf = clamp(d.rpm / cfg.maxRPM, 0, 1);
+  var rl = cfg.redline / cfg.maxRPM;
+  arcBar(TACHO, 205, 34, Math.PI * 0.75, Math.PI * 2.25, rf, function (f) {
+    if (f >= rl) return "#ff2a2a";
+    if (f >= rl - 0.12) return "#ffd000";
+    return "#36e0ff";
+  });
+  // shift lights: three big dots across the top of the tacho
+  var slCol = ["#2dff5a", "#ffb000", "#ff2a2a"];
+  for (var i = 0; i < 3; i++) {
+    var on = d.sl[i] > 0.5;
+    var x = TACHO.x - 90 + i * 90, y = TACHO.y - 120;
+    g.fillStyle = on ? slCol[i] : "#1a2029";
+    g.beginPath(); g.arc(x, y, 30, 0, Math.PI * 2); g.fill();
+    if (on) { g.lineWidth = 6; g.strokeStyle = "#ffffff"; g.stroke(); }
+  }
+  text(String(d.gear), TACHO.x, TACHO.y + 20, 210, "#ffffff", "900");
+  text(Math.round(d.rpm / 10) * 10 + " RPM", TACHO.x, TACHO.y + 140, 34, "#8fa0b5", "700");
+
+  // ---------------- small dials ----------------
+  smallGauge(FUEL, "FUEL", Math.round(d.fuel * 100), "%", d.fuel, d.fuel < 0.12);
+  var oilF = Math.round(d.oil * 9 / 5 + 32);
+  smallGauge(OIL, "OIL", oilF, "°F", (d.oil - 40) / 110, d.oil > 135);
+  var waterF = Math.round(d.water * 9 / 5 + 32);
+  smallGauge(WATER, "WATER", waterF, "°F", (d.water - 40) / 90, d.water > 115);
+  smallGauge(BOOST, "BOOST", Math.max(0, Math.round(d.boost)), "PSI", d.boost / 40, false);
+
+  // traction control status dial (replaces the old AMPS gauge)
+  disc(AMPS, 100, tcActive ? "#ffb000" : "#263040");
+  if (!d.tcOn) {
+    text("TC", AMPS.x, AMPS.y - 12, 64, "#ff9a3c", "900");
+    text("OFF", AMPS.x, AMPS.y + 40, 28, "#ff9a3c", "800");
+  } else {
+    if (tcActive) {
+      g.fillStyle = blink ? "#ffb000" : "#7a5400";
+      g.beginPath(); g.arc(AMPS.x, AMPS.y, 82, 0, Math.PI * 2); g.fill();
+    }
+    text("TC", AMPS.x, AMPS.y - 12, 72, tcActive ? "#000000" : "#4c5a6c", "900");
+    text("SLIP " + Math.round(d.slip * 100) + "%", AMPS.x, AMPS.y + 44, 22, tcActive ? "#000000" : "#6f7f93", "800");
+  }
+}
+
+function roundRect(x, y, w, h, r) {
+  g.beginPath();
+  g.moveTo(x + r, y); g.lineTo(x + w - r, y); g.quadraticCurveTo(x + w, y, x + w, y + r);
+  g.lineTo(x + w, y + h - r); g.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  g.lineTo(x + r, y + h); g.quadraticCurveTo(x, y + h, x, y + h - r);
+  g.lineTo(x, y + r); g.quadraticCurveTo(x, y, x + r, y); g.closePath();
+}
+
+// ---------- BeamNG hooks ----------
+window.setup = function (config) {
+  if (!config) return;
+  if (config.accentColor) cfg.accent = config.accentColor;
+  if (config.maxRPM) cfg.maxRPM = config.maxRPM;
+  if (config.redline) cfg.redline = config.redline;
+  draw();
+};
+
+window.updateData = function (data) {
+  var e = (data && data.electrics) || {};
+  d.speed = num(e.wheelspeed);
+  d.rpm = num(e.rpmTacho || e.rpm);
+  var gear = e.gear;
+  if (gear === undefined || gear === null || gear === 0 || gear === "0") gear = "N";
+  if (typeof gear === "number") gear = gear < 0 ? "R" : String(gear);
+  d.gear = String(gear).replace(/^[MSAD](?=\d)/, "");
+  d.boost = num(e.turboBoost);
+  d.water = num(e.watertemp);
+  d.oil = num(e.oiltemp);
+  d.fuel = num(e.fuel);
+  d.tc = num(e.velocita_tc) > 0.5 || e.tcsActive === true || e.tcsActive === 1 ? 1 : 0;
+  d.tcOn = num(e.velocita_tcEnabled) > 0.5 ? 1 : 0;
+  d.slip = num(e.velocita_tcSlip);
+  d.sl = [num(e.velocita_sl1), num(e.velocita_sl2), num(e.velocita_sl3)];
+  var now = Date.now();
+  blink = Math.floor(now / 125) % 2 === 0;
+  draw();
+};
+
+window.updateMode = function () {};
+draw();
+</script>
+</body>
+</html>
