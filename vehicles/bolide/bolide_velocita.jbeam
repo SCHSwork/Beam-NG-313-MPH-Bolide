@@ -2467,7 +2467,7 @@
     "slotType" : "bolide_steering",
     "controller": [
         ["fileName"],
-        ["velocitaSteering", {"speedSensitivity":0.55, "highSpeedTrim":-0.0003}],
+        ["velocitaSteering", {"speedSensitivity":0.55, "parkingLock": 0.88, "highSpeedTrim":-0.0003}],
     ],
     "flexbodies": [
          ["mesh", "[group]:", "nonFlexMaterials"],
@@ -2554,8 +2554,8 @@
             ["id1:","id2:"],
             {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
             {"beamSpring":10001000,"beamDamp":25,"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
-            ["fh6r","fx5l", {"factor":-0.14,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
-            ["fh6l","fx5r", {"factor":0.14,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            ["fh6r","fx5l", {"factor":-0.135,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            ["fh6l","fx5r", {"factor":0.135,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
             //reference hydro on the normal steering input (keeps steering wheel animation + UI working); very weak so it adds no force
             {"beamSpring":1000,"beamDamp":5,"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
             ["f2r","f2l", {"factor":0.0001,"steeringWheelLock":550, "inRate":1.25,"outRate":1.25}],
@@ -4621,7 +4621,7 @@
     "slotType" : "bolide_steering",
     "controller": [
         ["fileName"],
-        ["velocitaSteering", {"speedSensitivity":0.25, "rateScale":1.5, "highSpeedTrim":-0.0004}],
+        ["velocitaSteering", {"speedSensitivity":0.25, "parkingLock": 0.88, "rateScale":1.5, "highSpeedTrim":-0.0004}],
     ],
     "flexbodies": [
          ["mesh", "[group]:", "nonFlexMaterials"],
@@ -4708,8 +4708,8 @@
             ["id1:","id2:"],
             {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
             {"beamSpring":10001000,"beamDamp":25,"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
-            ["fh6r","fx5l", {"factor":-0.14,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
-            ["fh6l","fx5r", {"factor":0.14,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            ["fh6r","fx5l", {"factor":-0.135,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
+            ["fh6l","fx5r", {"factor":0.135,"steeringWheelLock":550, "inRate":1.15,"outRate":1.25, "inputSource":"velocita_steer"}],
             //reference hydro on the normal steering input (keeps steering wheel animation + UI working); very weak so it adds no force
             {"beamSpring":1000,"beamDamp":5,"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
             ["f2r","f2l", {"factor":0.0001,"steeringWheelLock":550, "inRate":1.25,"outRate":1.25}],

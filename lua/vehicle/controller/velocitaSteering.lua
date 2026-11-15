@@ -40,12 +40,15 @@ end
 local current = 0
 local sensitivity = 1
 local highSpeedTrim = 0
+local parkingLock = 1     -- lock scale when (nearly) stopped; fades to full by ~5 m/s
 local rateScale = 1        -- per-config steering speed multiplier   -- small left trim at very high speed to cancel weight-bias drift
 
 local function updateGFX(dt)
   local ev = electrics.values
   local speed = abs(ev.wheelspeed or ev.airspeed or 0)
   local scale = 1 - (1 - scaleFor(speed)) * sensitivity
+  -- limit lock while parked/crawling: tyre scrub forces are highest at a standstill
+  scale = scale * (parkingLock + (1 - parkingLock) * min(max((speed - 1) / 4, 0), 1))
   local target = (ev.steering_input or 0) * scale
   local rate = rateFor(speed) * rateScale
   -- returning toward center is allowed to be quicker than turning in
@@ -68,6 +71,7 @@ local function init(jbeamData)
   sensitivity = (jbeamData and jbeamData.speedSensitivity) or 1
   highSpeedTrim = (jbeamData and jbeamData.highSpeedTrim) or 0
   rateScale = (jbeamData and jbeamData.rateScale) or 1
+  parkingLock = (jbeamData and jbeamData.parkingLock) or 1
   electrics.values.velocita_steer = 0
 end
 
