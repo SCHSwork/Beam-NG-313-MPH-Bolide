@@ -86,8 +86,8 @@
         ["id1:", "id2:"],
         {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
         {"beamSpring":10001000,"beamDamp":1500,"beamDeform":45000,"beamStrength":225000},
-        ["rx1r", "ra1r", {"inputSource":"velocita_rws_r", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.950, "outLimit":1.050, "inRate":2, "outRate":2}],
-        ["rx1l", "ra1l", {"inputSource":"velocita_rws_l", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.950, "outLimit":1.050, "inRate":2, "outRate":2}],
+        ["rx1r", "ra1r", {"inputSource":"velocita_rws_r", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.920, "outLimit":1.080, "inRate":2, "outRate":2}],
+        ["rx1l", "ra1l", {"inputSource":"velocita_rws_l", "inputFactor":1, "inputCenter":0, "inputInLimit":-1, "inputOutLimit":1, "inLimit":0.920, "outLimit":1.080, "inRate":2, "outRate":2}],
     ],
     "beams": [
           ["id1:",  "id2:"],
