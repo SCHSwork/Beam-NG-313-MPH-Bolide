@@ -150,7 +150,7 @@
     "$gear_7": 1.05,
     "$n2o_rpm": 3000,
     "$n2o_gear": 2,
-    "$arb_spring_F": 12000,
+    "$arb_spring_F": 9000,
     "$difftorquesplit_C": 0.78,
     "$lsdpreload_C": 60,
     "$lsdlockcoef_C": 0.18,
