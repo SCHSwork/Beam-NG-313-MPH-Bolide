@@ -2743,7 +2743,7 @@
     "slotType" : "bolide_steering",
     "controller": [
         ["fileName"],
-        ["velocitaSteering", {"speedSensitivity":0.55, "highSpeedTrim":-0.0003}],
+        ["velocitaSteering", {"speedSensitivity":0.42, "highSpeedTrim":-0.0003}],
     ],
     "flexbodies": [
          ["mesh", "[group]:", "nonFlexMaterials"],
@@ -3473,7 +3473,7 @@
     "slotType" : "bolide_spoiler_b",
     "controller": [
         ["fileName"],
-        ["velocitaActiveWing"],
+        ["velocitaActiveWing", {"fastCorner":0.12}],
     ],
 
     "flexbodies": [
@@ -3692,7 +3692,7 @@
             {"dragCoef":5},
             {"triangleType":"NONCOLLIDABLE"},
             {"breakGroup":"spoiler_R"},
-            ["f9l",   "f7",    "f9r",   {"liftCoef":175, "stallAngle":0.45}],
+            ["f9l",   "f7",    "f9r",   {"liftCoef":240, "stallAngle":0.45}],
             {"breakGroup":""},
             {"triangleType":"NORMALTYPE"},
             {"group":""},
@@ -5004,7 +5004,7 @@
     "slotType" : "bolide_spoiler_b",
     "controller": [
         ["fileName"],
-        ["velocitaActiveWing"],
+        ["velocitaActiveWing", {"fastCorner":0.12}],
     ],
 
     "flexbodies": [
@@ -5223,7 +5223,7 @@
             {"dragCoef":5},
             {"triangleType":"NONCOLLIDABLE"},
             {"breakGroup":"spoiler_R"},
-            ["f9l",   "f7",    "f9r",   {"liftCoef":320, "stallAngle":0.45}],
+            ["f9l",   "f7",    "f9r",   {"liftCoef":400, "stallAngle":0.45}],
             {"breakGroup":""},
             {"triangleType":"NORMALTYPE"},
             {"group":""},

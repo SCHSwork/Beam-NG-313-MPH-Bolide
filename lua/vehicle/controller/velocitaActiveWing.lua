@@ -10,6 +10,7 @@ local current = 0
 local holdTimer = 0      -- keeps the wing up briefly after a corner / braking zone
 local mode = "normal"
 local forceLowDrag = false
+local fastCorner = 0.42   -- cornering wing position at high speed (lower = less rear downforce = more front bite)
 
 local function setMode(m) mode = m; electrics.values.velocita_wing_mode = m end
 
@@ -21,6 +22,8 @@ local function updateGFX(dt)
   local steer = abs(ev.steering_input or 0)
   local latG = abs((sensors and sensors.gx2) or 0) / 9.81
 
+  -- rear-heavy car: at high speed less rear wing in corners keeps the nose biting
+  local cornerPos = 0.42 + (fastCorner - 0.42) * min(max((speed - 38) / 22, 0), 1)
   local target
   if speed < 12 then                                  -- under ~27 mph: just sit at the normal angle
     target = 0; setMode("normal"); holdTimer = 0
@@ -29,10 +32,10 @@ local function updateGFX(dt)
   elseif forceLowDrag then                           -- Top Speed mode: stay flat
     target = -1; setMode("lowdrag"); holdTimer = 0
   elseif latG > 0.3 or steer > 0.12 then              -- cornering: extra downforce
-    target = 0.42; setMode("corner"); holdTimer = max(holdTimer, 0.5)
+    target = cornerPos; setMode("corner"); holdTimer = max(holdTimer, 0.5)
   elseif holdTimer > 0 then                           -- settle a moment before flattening
     holdTimer = holdTimer - dt
-    target = 0.42
+    target = cornerPos
   elseif throttle > 0.6 and speed > 25 and latG < 0.15 then   -- flat out on a straight: low drag
     target = -1; setMode("lowdrag")
   else
@@ -54,6 +57,7 @@ end
 
 local function init(jbeamData)
   reset()
+  fastCorner = (jbeamData and jbeamData.fastCorner) or 0.42
 end
 
 local function setParameters(p)
