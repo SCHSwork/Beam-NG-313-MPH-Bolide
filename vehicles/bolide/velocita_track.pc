@@ -88,7 +88,7 @@
     "bolide_subframe_R": "bolide_subframe_R",
     "bolide_sunstrip": "",
     "bolide_suspension_F": "bolide_suspension_F",
-    "bolide_suspension_R": "bolide_suspension_R",
+    "bolide_suspension_R": "bolide_suspension_R_velocita_rws",
     "bolide_swaybar_F": "bolide_swaybar_F_race",
     "bolide_swaybar_R": "bolide_swaybar_R_race",
     "bolide_tailcone": "bolide_tailcone_b",
