@@ -32,7 +32,11 @@ local function updateGFX(dt)
   electrics.values.velocita_diff_open = k
 end
 
-local function init() diffs = {} end
+local function init(jbeamData)
+  diffs = {}
+  startSpeed = (jbeamData and jbeamData.startSpeed) or 56
+  fullSpeed = (jbeamData and jbeamData.fullSpeed) or 67
+end
 
 M.init = init
 M.updateGFX = updateGFX

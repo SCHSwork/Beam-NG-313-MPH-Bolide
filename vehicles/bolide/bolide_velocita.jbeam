@@ -3672,10 +3672,11 @@
                 }
             ],
             [
-                "velocitaStraightLine"
-            ],
-            [
-                "velocitaDiag"
+                "velocitaStraightLine",
+                {
+                    "startSpeed": 36,
+                    "fullSpeed": 49
+                }
             ]
         ],
         "vehicleData": {
@@ -3860,7 +3861,7 @@
                     {
                         "controllerName": "activeBiasRear",
                         "isEnabled": true,
-                        "maxBiasOffset": 0.2
+                        "maxBiasOffset": 0.15
                     }
                 ],
                 [
